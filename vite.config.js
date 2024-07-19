@@ -8,13 +8,13 @@ import { quasar, transformAssetUrls } from '@quasar/vite-plugin'
 export default defineConfig({
   plugins: [
 		vue({
-      template: { transformAssetUrls }
+      template: { transformAssetUrls } 
     }),
 
     // @quasar/plugin-vite options list:
     // https://github.com/quasarframework/quasar/blob/dev/vite-plugin/index.d.ts
     quasar({
-      sassVariables: 'src/quasar-variables.scss'
+      sassVariables: 'src/quasar-variables.sass'
     })
   ],
   resolve: {
