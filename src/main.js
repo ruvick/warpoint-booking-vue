@@ -1,23 +1,17 @@
-import './assets/main.scss'
+// import './assets/main.css'
+import { Quasar } from 'quasar'
+import '@quasar/extras/material-icons/material-icons.css'
+import 'quasar/src/css/index.sass'
 
 import { createApp } from 'vue'
-import App from './App'
-import components from '@/components/UI';
-import router from "@/router/router";
-// import directives from '@/directives';
-// import store from '@/store';
+import { createPinia } from 'pinia'
+
+import App from './App.vue'
+import router from './router'
 
 const app = createApp(App)
 
-components.forEach(component => {
-    app.component(component.name, component)
-})
+app.use(createPinia())
+app.use(router)
 
-// directives.forEach(directive => {
-//     app.directive(directive.name, directive)
-// })
-
-app
-    .use(router)
-    // .use(store)
-    .mount('#app');
+app.mount('#app')
