@@ -4,14 +4,7 @@
 		<q-page-container class="my-page-container body--dark">
 			<q-page class="page-main">
 
-				<div class="page-main__header header-page-main row items-center">
-					<q-btn class="no-hover" primary @click="$router.push('/')" style="font-size: 11px; color: #C4C8CF; border: 1px solid #30343B; border-radius: 24px;">
-						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 4px;">
-							<path d="M12.5 5L7.5 10L12.5 15" stroke="#C4C8CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-						</svg>
-						<span>На сайт</span>
-					</q-btn>
-				</div>
+				<HeaderMain/>
 
 				<div class="page-main__body body-main q-pt-lg q-pb-lg">
 					<div class="body-main__inner row container-md">
@@ -259,6 +252,7 @@
 <script setup>
 
 	import { ref } from 'vue';
+	import HeaderMain from '@/components/HeaderMain.vue';
 
 	const country = ref('');
 	const sity = ref('');
