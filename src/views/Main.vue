@@ -1,8 +1,42 @@
+<script setup>
+
+import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+import HeaderMain from '@/components/HeaderMain.vue';
+
+const router = useRouter();
+
+const goToCountryPage = () => {
+router.push({ name: 'country' });
+};
+
+onMounted(() => {
+const storedCountry = localStorage.getItem('selectedCountry');
+if (storedCountry) {
+    country.value = storedCountry;
+    localStorage.removeItem('selectedCountry'); // Очистка localStorage после загрузки значения
+}
+});
+
+	const country = ref('');
+	const sity = ref('');
+	const location = ref('');
+	const gameZone = ref('');
+	const service = ref('');
+	const dateTime = ref('');
+	const dense = ref(false);
+	const promocode = ref('');
+	const name = ref('');
+	const phone = ref(null);
+	const shape = ref(['line']);
+
+</script>
+
 <template>
 
 	<q-layout>
 		<q-page-container class="my-page-container body--dark">
-			<q-page class="page-main">
+			<q-page class="page-main q-pt-md q-pb-md q-pl-sm q-pr-sm">
 
 				<HeaderMain/>
 
@@ -18,29 +52,47 @@
 
 									<div class="input-main q-mb-lg">
 										<div class="input-main__label">Страна</div>
-										<q-input class="input-main__input" v-model="country" placeholder="Выберите страну" :dense="dense" >
-											<template v-slot:prepend>
-											<div class="input-main__flag">
-												<svg fill="none" xmlns="http://www.w3.org/2000/svg">
-													<g clip-path="url(#clip0_56_2611)">
-														<rect width="25" height="20" rx="4" fill="white"/>
-														<rect y="8" width="32" height="8" fill="#0077FF"/>
-														<rect y="16" width="32" height="8" fill="#FB370B"/>
-													</g>
-													<defs>
-														<clipPath id="clip0_56_2611">
-															<rect width="25" height="20" rx="4" fill="white"/>
-														</clipPath>
-													</defs>
-												</svg>
-											</div>
-										</template>
-											<template v-slot:append>
-												<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path d="M7.5 5L12.5 10L7.5 15" stroke="#C4C8CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-												</svg>
-										</template>
-										</q-input>
+                    <q-input
+                     class="input-main__input"
+                     v-model="country"
+                     placeholder="Выберите страну"
+                     :dense="dense"
+                     @click="goToCountryPage"
+                    >
+                     <template v-slot:prepend>
+                        <div class="input-main__flag">
+                         <svg fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_56_2611)">
+                             <rect width="25" height="20" rx="4" fill="white" />
+                             <rect y="8" width="32" height="8" fill="#0077FF" />
+                             <rect y="16" width="32" height="8" fill="#FB370B" />
+                            </g>
+                            <defs>
+                             <clipPath id="clip0_56_2611">
+                                <rect width="25" height="20" rx="4" fill="white" />
+                             </clipPath>
+                            </defs>
+                         </svg>
+                        </div>
+                     </template>
+                     <template v-slot:append>
+                        <svg
+                         width="20"
+                         height="20"
+                         viewBox="0 0 20 20"
+                         fill="none"
+                         xmlns="http://www.w3.org/2000/svg"
+                        >
+                         <path
+                            d="M7.5 5L12.5 10L7.5 15"
+                            stroke="#C4C8CF"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                         />
+                        </svg>
+                     </template>
+                    </q-input>
 									</div>
 
 									<div class="input-main q-mb-lg">
@@ -249,33 +301,7 @@
 
 </template>
 
-<script setup>
-
-	import { ref } from 'vue';
-	import HeaderMain from '@/components/HeaderMain.vue';
-
-	const country = ref('');
-	const sity = ref('');
-	const location = ref('');
-	const gameZone = ref('');
-	const service = ref('');
-	const dateTime = ref('');
-	const dense = ref(false);
-	const promocode = ref('');
-	const name = ref('');
-	const phone = ref(null);
-	const shape = ref(['line']);
-
-</script>
-
 <style lang="scss">
-
-	.body--dark {
-		background-color: #101114;
-	}
-	.page-main {
-		padding: 12px 8px;
-	}
 	.header-page-main {
 		min-height: 52px;
 		background-image: url('src/assets/logo.svg');
