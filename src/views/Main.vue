@@ -1,26 +1,31 @@
 <script setup>
-import { ref, onMounted, watch } from 'vue';
-import { useRouter } from 'vue-router';
-import HeaderMain from '@/components/HeaderMain.vue';
 
-const router = useRouter();
+	import { ref, onMounted, watch } from 'vue';
+	import { useRouter } from 'vue-router';
+	import HeaderMain from '@/components/HeaderMain.vue';
 
-const goToCountryPage = () => {
-router.push({ name: 'country' });
-};
+	const router = useRouter();
 
-const goToCityPage = () => {
-router.push({ name: 'city' });
-};
+	const goToCountryPage = () => {
+		router.push({ name: 'country' });
+	};
 
-const goToLocationPage = () => {
-router.push({ name: 'location' });
-};
+	const goToCityPage = () => {
+		router.push({ name: 'city' });
+	};
+
+	const goToLocationPage = () => {
+		router.push({ name: 'location' });
+	};
+
+	const goToActivityPage = () => {
+		router.push({ name: 'activity' });
+	};
 
 const country = ref(localStorage.getItem('selectedCountry') || '');
 const city = ref(localStorage.getItem('selectedCity') || '');
 const location = ref(localStorage.getItem('selectedLocation') || '');
-const gameZone = ref(localStorage.getItem('selectedGameZone') || '');
+const activity = ref(localStorage.getItem('selectedActivity') || '');
 const service = ref(localStorage.getItem('selectedService') || '');
 const dateTime = ref(localStorage.getItem('selectedDateTime') || '');
 const dense = ref(false);
@@ -41,8 +46,8 @@ watch(location, (newVal) => {
 localStorage.setItem('selectedLocation', newVal);
 });
 
-watch(gameZone, (newVal) => {
-localStorage.setItem('selectedGameZone', newVal);
+watch(activity, (newVal) => {
+localStorage.setItem('selectedActivity', newVal);
 });
 
 watch(service, (newVal) => {
@@ -180,7 +185,13 @@ localStorage.setItem('selectedShape', JSON.stringify(newVal));
 
 									<div class="input-main q-mb-lg">
 										<div class="input-main__label">Игровая зона / мероприятие</div>
-										<q-input class="input-main__input" v-model="gameZone" placeholder="Выберите активность" :dense="dense" >
+										<q-input 
+											class="input-main__input" 
+											v-model="activity" 
+											placeholder="Выберите активность" 
+											:dense="dense" 
+											@click="goToActivityPage" 
+											>
 											<template v-slot:append>
 												<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 													<path d="M7.5 5L12.5 10L7.5 15" stroke="#C4C8CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

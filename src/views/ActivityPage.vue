@@ -6,9 +6,9 @@
 
 	const router = useRouter();
 
-	const selectLocation = (title, address) => {
-	const location = `${title} (${address})`;
-	localStorage.setItem('selectedLocation', location);
+	const selectActivity = (title) => {
+	const activity = `${title}`;
+	localStorage.setItem('selectedActivity', activity);
 	router.push({ name: 'main' });
 };
 
@@ -29,7 +29,7 @@
 						
 									<div class="activity-cards row q-pt-md q-pb-md">
 
-									<div class="activity-card-column row col-xs-12 col-sm-6 col-md-4" @click="selectActitvity('VR-Arena')">
+									<div class="activity-card-column row col-xs-12 col-sm-6 col-md-4" @click="selectActivity('VR-Arena')">
 										<div class="activity-card column items-start">
 											<div class="activity-card__img q-mb-md">
 												<img src="../assets/img/activity/01.jpg" loading="lazy" alt="Картинка">
@@ -44,7 +44,7 @@
 										</div>
 									</div>
 
-									<div class="activity-card-column row col-xs-12 col-sm-6 col-md-4" @click="selectActitvity('VR-Room')">
+									<div class="activity-card-column row col-xs-12 col-sm-6 col-md-4" @click="selectActivity('VR-Room')">
 										<div class="activity-card column items-start">
 											<div class="activity-card__img q-mb-md">
 												<img src="../assets/img/activity/02.jpg" loading="lazy" alt="Картинка">
