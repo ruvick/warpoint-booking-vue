@@ -1,6 +1,6 @@
 <script setup>
 
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import HeaderMain from '@/components/HeaderMain.vue';
 
@@ -10,25 +10,61 @@ const goToCountryPage = () => {
 router.push({ name: 'country' });
 };
 
-onMounted(() => {
-const storedCountry = localStorage.getItem('selectedCountry');
-if (storedCountry) {
-    country.value = storedCountry;
-    localStorage.removeItem('selectedCountry'); // Очистка localStorage после загрузки значения
-}
+const goToCityPage = () => {
+router.push({ name: 'city' });
+};
+
+const country = ref(localStorage.getItem('selectedCountry') || '');
+const city = ref(localStorage.getItem('selectedCity') || '');
+const location = ref(localStorage.getItem('selectedLocation') || '');
+const gameZone = ref(localStorage.getItem('selectedGameZone') || '');
+const service = ref(localStorage.getItem('selectedService') || '');
+const dateTime = ref(localStorage.getItem('selectedDateTime') || '');
+const dense = ref(false);
+const promocode = ref(localStorage.getItem('selectedPromocode') || '');
+const name = ref(localStorage.getItem('selectedName') || '');
+const phone = ref(localStorage.getItem('selectedPhone') || null);
+const shape = ref(JSON.parse(localStorage.getItem('selectedShape')) || ['line']);
+
+watch(country, (newVal) => {
+localStorage.setItem('selectedCountry', newVal);
 });
 
-	const country = ref('');
-	const sity = ref('');
-	const location = ref('');
-	const gameZone = ref('');
-	const service = ref('');
-	const dateTime = ref('');
-	const dense = ref(false);
-	const promocode = ref('');
-	const name = ref('');
-	const phone = ref(null);
-	const shape = ref(['line']);
+watch(city, (newVal) => {
+localStorage.setItem('selectedCity', newVal);
+});
+
+watch(location, (newVal) => {
+localStorage.setItem('selectedLocation', newVal);
+});
+
+watch(gameZone, (newVal) => {
+localStorage.setItem('selectedGameZone', newVal);
+});
+
+watch(service, (newVal) => {
+localStorage.setItem('selectedService', newVal);
+});
+
+watch(dateTime, (newVal) => {
+localStorage.setItem('selectedDateTime', newVal);
+});
+
+watch(promocode, (newVal) => {
+localStorage.setItem('selectedPromocode', newVal);
+});
+
+watch(name, (newVal) => {
+localStorage.setItem('selectedName', newVal);
+});
+
+watch(phone, (newVal) => {
+localStorage.setItem('selectedPhone', newVal);
+});
+
+watch(shape, (newVal) => {
+localStorage.setItem('selectedShape', JSON.stringify(newVal));
+});
 
 </script>
 
@@ -97,7 +133,13 @@ if (storedCountry) {
 
 									<div class="input-main q-mb-lg">
 										<div class="input-main__label">Город</div>
-										<q-input class="input-main__input" v-model="sity" placeholder="Выберите город" :dense="dense" >
+										<q-input 
+											class="input-main__input" 
+											v-model="city" 
+											placeholder="Выберите город" 
+											:dense="dense" 
+											@click="goToCityPage"
+											>
 											<template v-slot:append>
 												<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 													<path d="M7.5 5L12.5 10L7.5 15" stroke="#C4C8CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -302,13 +344,6 @@ if (storedCountry) {
 </template>
 
 <style lang="scss">
-	.header-page-main {
-		min-height: 52px;
-		background-image: url('src/assets/logo.svg');
-		background-repeat: no-repeat;
-		background-size: contain;
-		background-position: center;
-	}
 	.card-column {
 		padding: 4px;
 	}
@@ -405,4 +440,5 @@ if (storedCountry) {
 			background-color: #0043CE;
 			border-radius: 24px;
 		}
+		
 </style>
