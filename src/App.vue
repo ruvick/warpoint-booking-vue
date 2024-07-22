@@ -7,7 +7,7 @@ import { RouterLink, RouterView } from 'vue-router'
   <RouterView />
 </template>
 
-<style>
+<style lang="scss">
 	body {
 		min-width: 320px;
 	}

@@ -14,226 +14,236 @@
 				</div>
 
 				<div class="page-main__body body-main q-pt-lg q-pb-lg">
-					<div class="body-main__inner row justify-center" style="gap: 8px;">
+					<div class="body-main__inner row container-md">
 
-						<div class="card-main col-xs-12 col-sm-6 col-md-4 q-pt-lg q-pl-lg q-pr-lg q-pb-xl" style="">
-							<div class="card-main__header row items-center q-mb-xl">
-								<div class="card-main__title text-h8 text-dark-10">01. Место</div>
+						<div class="card-column row col-xs-12 col-sm-6 col-md-4">
+							<div class="card-main q-pt-lg q-pl-lg q-pr-lg q-pb-xl" style="">
+								<div class="card-main__header row items-center q-mb-xl">
+									<div class="card-main__title text-h8 text-dark-10">01. Место</div>
+								</div>
+								<div class="card-main__body">
+
+									<div class="input-main q-mb-lg">
+										<div class="input-main__label">Страна</div>
+										<q-input class="input-main__input" v-model="country" placeholder="Выберите страну" :dense="dense" >
+											<template v-slot:prepend>
+											<div class="input-main__flag">
+												<svg fill="none" xmlns="http://www.w3.org/2000/svg">
+													<g clip-path="url(#clip0_56_2611)">
+														<rect width="25" height="20" rx="4" fill="white"/>
+														<rect y="8" width="32" height="8" fill="#0077FF"/>
+														<rect y="16" width="32" height="8" fill="#FB370B"/>
+													</g>
+													<defs>
+														<clipPath id="clip0_56_2611">
+															<rect width="25" height="20" rx="4" fill="white"/>
+														</clipPath>
+													</defs>
+												</svg>
+											</div>
+										</template>
+											<template v-slot:append>
+												<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M7.5 5L12.5 10L7.5 15" stroke="#C4C8CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+												</svg>
+										</template>
+										</q-input>
+									</div>
+
+									<div class="input-main q-mb-lg">
+										<div class="input-main__label">Город</div>
+										<q-input class="input-main__input" v-model="sity" placeholder="Выберите город" :dense="dense" >
+											<template v-slot:append>
+												<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M7.5 5L12.5 10L7.5 15" stroke="#C4C8CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+												</svg>
+										</template>
+										</q-input>
+									</div>
+
+									<div class="input-main">
+										<div class="input-main__label">Локация</div>
+										<q-input class="input-main__input" v-model="location" placeholder="Выберите локацию" :dense="dense" >
+											<template v-slot:append>
+												<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M7.5 5L12.5 10L7.5 15" stroke="#C4C8CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+												</svg>
+										</template>
+										</q-input>
+									</div>
+
+								</div>
 							</div>
-							<div class="card-main__body">
+						</div>
 
-								<div class="input-main q-mb-lg">
-									<div class="input-main__label">Страна</div>
-									<q-input class="input-main__input" v-model="country" placeholder="Выберите страну" :dense="dense" >
+						<div class="card-column row col-xs-12 col-sm-6 col-md-4">
+							<div class="card-main q-pt-lg q-pl-lg q-pr-lg q-pb-xl">
+								<div class="card-main__header row items-center q-mb-xl">
+									<div class="card-main__title text-h8 text-dark-10">02. Игра</div>
+								</div>
+								<div class="card-main__body">
+
+									<div class="input-main q-mb-lg">
+										<div class="input-main__label">Игровая зона / мероприятие</div>
+										<q-input class="input-main__input" v-model="gameZone" placeholder="Выберите активность" :dense="dense" >
+											<template v-slot:append>
+												<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M7.5 5L12.5 10L7.5 15" stroke="#C4C8CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+												</svg>
+										</template>
+										</q-input>
+									</div>
+
+									<div class="input-main q-mb-lg">
+										<div class="input-main__label">Услуга</div>
+										<q-input class="input-main__input" v-model="service" placeholder="Выберите услугу" :dense="dense" >
+											<template v-slot:append>
+												<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M7.5 5L12.5 10L7.5 15" stroke="#C4C8CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+												</svg>
+										</template>
+										</q-input>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="card-column row col-xs-12 col-sm-6 col-md-4">
+							<div class="card-main q-pt-lg q-pl-lg q-pr-lg q-pb-xl">
+								<div class="card-main__header row items-center q-mb-xl">
+									<div class="card-main__title text-h8 text-dark-10">03. дата и время</div>
+								</div>
+								<div class="card-main__body">
+
+									<div class="input-main q-mb-lg">
+										<div class="input-main__label">Когда и во сколько</div>
+										<q-input class="input-main__input" v-model="dateTime" placeholder="Выберите дату и время игры" :dense="dense" >
+											<template v-slot:append>
+												<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M7.5 5L12.5 10L7.5 15" stroke="#C4C8CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+												</svg>
+										</template>
+										</q-input>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="card-column row col-xs-12 col-sm-6 col-md-4">
+							<div class="card-main q-pt-lg q-pl-lg q-pr-lg q-pb-xl" style="">
+								<div class="card-main__header row items-center q-mb-xl">
+									<div class="card-main__title text-h8 text-dark-10">04. Ваши данные</div>
+								</div>
+								<div class="card-main__body">
+
+									<div class="input-main q-mb-lg">
+										<div class="input-main__label">Имя</div>
+										<q-input class="input-main__input" v-model="name" placeholder="Имя Фамилия" :dense="dense" >
+										</q-input>
+									</div>
+
+									<div class="input-main q-mb-lg">
+										<div class="input-main__label">Телефон</div>
+										<q-input class="input-main__input" v-model="phone" :dense="dense" 
+											mask="+7(###) - ### - ## - ##"
+											fill-mask
+										>
 										<template v-slot:prepend>
-										<div class="input-main__flag">
-											<svg fill="none" xmlns="http://www.w3.org/2000/svg">
-												<g clip-path="url(#clip0_56_2611)">
-													<rect width="25" height="20" rx="4" fill="white"/>
-													<rect y="8" width="32" height="8" fill="#0077FF"/>
-													<rect y="16" width="32" height="8" fill="#FB370B"/>
-												</g>
-												<defs>
-													<clipPath id="clip0_56_2611">
+											<div class="input-main__flag">
+												<svg fill="none" xmlns="http://www.w3.org/2000/svg">
+													<g clip-path="url(#clip0_56_2611)">
 														<rect width="25" height="20" rx="4" fill="white"/>
-													</clipPath>
-												</defs>
-											</svg>
+														<rect y="8" width="32" height="8" fill="#0077FF"/>
+														<rect y="16" width="32" height="8" fill="#FB370B"/>
+													</g>
+													<defs>
+														<clipPath id="clip0_56_2611">
+															<rect width="25" height="20" rx="4" fill="white"/>
+														</clipPath>
+													</defs>
+												</svg>
+											</div>
+										</template>
+										</q-input>
+									</div>
+
+									<div class="input-main q-mb-lg">
+										<div class="input-main__label">Email</div>
+										<q-input class="input-main__input" v-model="email" placeholder="Введите Email" :dense="dense" >
+										</q-input>
+									</div>
+
+									<div class="input-main">
+										<div class="input-main__label">соглашение</div>
+										<q-checkbox class="checkbox-main" size="md" v-model="shape" val="md" label="Согласен с условиями соглашения" />
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="card-column row col-xs-12 col-sm-6 col-md-4">
+							<div class="card-main q-pt-lg">
+								<div class="card-main__header row items-center q-pl-lg q-pr-lg q-mb-xl">
+									<div class="card-main__title text-h8 text-dark-10">05. Бронирование</div>
+								</div>
+								<div class="card-main__body q-pl-lg q-pr-lg q-pb-xl">
+
+									<div class="input-main input-main--dooble q-pt-sm q-pb-lg q-mb-lg">
+										<div class="input-main__label q-mb-md">Участники</div>
+										<div class="input-main__body row items-center justify-between">
+											<div class="col-auto">1</div>
+											<div class="col-auto">2</div>
 										</div>
-									</template>
-										<template v-slot:append>
-											<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M7.5 5L12.5 10L7.5 15" stroke="#C4C8CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-											</svg>
-									</template>
-									</q-input>
-								</div>
+									</div>
 
-								<div class="input-main q-mb-lg">
-									<div class="input-main__label">Город</div>
-									<q-input class="input-main__input" v-model="sity" placeholder="Выберите город" :dense="dense" >
-										<template v-slot:append>
-											<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M7.5 5L12.5 10L7.5 15" stroke="#C4C8CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-											</svg>
-									</template>
-									</q-input>
-								</div>
-
-								<div class="input-main">
-									<div class="input-main__label">Локация</div>
-									<q-input class="input-main__input" v-model="location" placeholder="Выберите локацию" :dense="dense" >
-										<template v-slot:append>
-											<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M7.5 5L12.5 10L7.5 15" stroke="#C4C8CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-											</svg>
-									</template>
-									</q-input>
-								</div>
-
-							</div>
-						</div>
-
-						<div class="card-main col-xs-12 col-sm-6 col-md-4 q-pt-lg q-pl-lg q-pr-lg q-pb-xl">
-							<div class="card-main__header row items-center q-mb-xl">
-								<div class="card-main__title text-h8 text-dark-10">02. Игра</div>
-							</div>
-							<div class="card-main__body">
-
-								<div class="input-main q-mb-lg">
-									<div class="input-main__label">Игровая зона / мероприятие</div>
-									<q-input class="input-main__input" v-model="gameZone" placeholder="Выберите активность" :dense="dense" >
-										<template v-slot:append>
-											<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M7.5 5L12.5 10L7.5 15" stroke="#C4C8CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-											</svg>
-									</template>
-									</q-input>
-								</div>
-
-								<div class="input-main q-mb-lg">
-									<div class="input-main__label">Услуга</div>
-									<q-input class="input-main__input" v-model="service" placeholder="Выберите услугу" :dense="dense" >
-										<template v-slot:append>
-											<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M7.5 5L12.5 10L7.5 15" stroke="#C4C8CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-											</svg>
-									</template>
-									</q-input>
-								</div>
-
-							</div>
-						</div>
-
-						<div class="card-main col-xs-12 col-sm-6 col-md-4 q-pt-lg q-pl-lg q-pr-lg q-pb-xl">
-							<div class="card-main__header row items-center q-mb-xl">
-								<div class="card-main__title text-h8 text-dark-10">03. дата и время</div>
-							</div>
-							<div class="card-main__body">
-
-								<div class="input-main q-mb-lg">
-									<div class="input-main__label">Когда и во сколько</div>
-									<q-input class="input-main__input" v-model="dateTime" placeholder="Выберите дату и время игры" :dense="dense" >
-										<template v-slot:append>
-											<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M7.5 5L12.5 10L7.5 15" stroke="#C4C8CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-											</svg>
-									</template>
-									</q-input>
-								</div>
-
-							</div>
-						</div>
-
-						<div class="card-main col-xs-12 col-sm-6 col-md-4 q-pt-lg q-pl-lg q-pr-lg q-pb-xl" style="">
-							<div class="card-main__header row items-center q-mb-xl">
-								<div class="card-main__title text-h8 text-dark-10">04. Ваши данные</div>
-							</div>
-							<div class="card-main__body">
-
-								<div class="input-main q-mb-lg">
-									<div class="input-main__label">Имя</div>
-									<q-input class="input-main__input" v-model="name" placeholder="Имя Фамилия" :dense="dense" >
-									</q-input>
-								</div>
-
-								<div class="input-main q-mb-lg">
-									<div class="input-main__label">Телефон</div>
-									<q-input class="input-main__input" v-model="phone" :dense="dense" 
-										mask="+7(###) - ### - ## - ##"
-        						fill-mask
-									>
-									<template v-slot:prepend>
-										<div class="input-main__flag">
-											<svg fill="none" xmlns="http://www.w3.org/2000/svg">
-												<g clip-path="url(#clip0_56_2611)">
-													<rect width="25" height="20" rx="4" fill="white"/>
-													<rect y="8" width="32" height="8" fill="#0077FF"/>
-													<rect y="16" width="32" height="8" fill="#FB370B"/>
-												</g>
-												<defs>
-													<clipPath id="clip0_56_2611">
-														<rect width="25" height="20" rx="4" fill="white"/>
-													</clipPath>
-												</defs>
-											</svg>
+									<div class="input-main input-main--dooble q-pt-sm q-pb-lg q-mb-lg">
+										<div class="input-main__label q-mb-md">Подарочный сертификат</div>
+										<div class="input-main__body row items-center justify-between">
+											<div class="col-auto">1</div>
+											<div class="col-auto">2</div>
 										</div>
-									</template>
-									</q-input>
-								</div>
-
-								<div class="input-main q-mb-lg">
-									<div class="input-main__label">Email</div>
-									<q-input class="input-main__input" v-model="email" placeholder="Введите Email" :dense="dense" >
-									</q-input>
-								</div>
-
-								<div class="input-main">
-									<div class="input-main__label">соглашение</div>
-									<q-checkbox class="checkbox-main" size="md" v-model="shape" val="md" label="Согласен с условиями соглашения" />
-								</div>
-
-							</div>
-						</div>
-
-						<div class="card-main col-xs-12 col-sm-6 col-md-4 q-pt-lg">
-							<div class="card-main__header row items-center q-pl-lg q-pr-lg q-mb-xl">
-								<div class="card-main__title text-h8 text-dark-10">05. Бронирование</div>
-							</div>
-							<div class="card-main__body q-pl-lg q-pr-lg q-pb-xl">
-
-								<div class="input-main input-main--dooble q-pt-sm q-pb-lg q-mb-lg">
-									<div class="input-main__label q-mb-md">Участники</div>
-									<div class="input-main__body row items-center justify-between">
-										<div class="col-auto">1</div>
-										<div class="col-auto">2</div>
 									</div>
-								</div>
 
-								<div class="input-main input-main--dooble q-pt-sm q-pb-lg q-mb-lg">
-									<div class="input-main__label q-mb-md">Подарочный сертификат</div>
-									<div class="input-main__body row items-center justify-between">
-										<div class="col-auto">1</div>
-										<div class="col-auto">2</div>
+									<div class="input-main input-main--dooble q-pt-sm q-pb-lg q-mb-lg">
+										<div class="input-main__label q-mb-md">Баллы</div>
+										<div class="input-main__body row items-center justify-between">
+											<div class="col-auto">1</div>
+											<div class="col-auto">2</div>
+										</div>
 									</div>
-								</div>
 
-								<div class="input-main input-main--dooble q-pt-sm q-pb-lg q-mb-lg">
-									<div class="input-main__label q-mb-md">Баллы</div>
-									<div class="input-main__body row items-center justify-between">
-										<div class="col-auto">1</div>
-										<div class="col-auto">2</div>
+									<div class="input-main q-mb-lg">
+										<div class="input-main__label">Промокод</div>
+										<q-input class="input-main__input" v-model="promocode" placeholder="Введите промокод" :dense="dense" >
+										</q-input>
 									</div>
-								</div>
 
-								<div class="input-main q-mb-lg">
-									<div class="input-main__label">Промокод</div>
-									<q-input class="input-main__input" v-model="promocode" placeholder="Введите промокод" :dense="dense" >
-									</q-input>
-								</div>
-
-								<div class="input-main input-main--dooble q-pt-sm q-pb-lg q-mb-lg">
-									<div class="input-main__label q-mb-md">Сумма заказа</div>
-									<div class="input-main__body row">
-										<div class="input-main__price price-main">3 000 ₽</div>
+									<div class="input-main input-main--dooble q-pt-sm q-pb-lg q-mb-lg">
+										<div class="input-main__label q-mb-md">Сумма заказа</div>
+										<div class="input-main__body row">
+											<div class="input-main__price price-main">3 000 ₽</div>
+										</div>
 									</div>
-								</div>
 
-								<div class="input-main input-main--dooble q-pt-sm q-pb-lg">
-									<div class="input-main__label q-mb-md">Сумма предоплаты</div>
-									<div class="input-main__body row">
-										<div class="input-main__price price-main">600 ₽</div>
+									<div class="input-main input-main--dooble q-pt-sm q-pb-lg">
+										<div class="input-main__label q-mb-md">Сумма предоплаты</div>
+										<div class="input-main__body row">
+											<div class="input-main__price price-main">600 ₽</div>
+										</div>
 									</div>
-								</div>
 
-							</div>
-							<div class="card-main__buttons row q-pb-sm">
-								<q-btn unelevated class="card-main__btn text-weight-bold col">
-									<span class="block">Забронировать</span>
-								</q-btn>
-								<q-btn unelevated class="card-main__btn text-weight-bold col" style="display: none;">
-									<span class="block">Перейти к предоплате</span>
-								</q-btn>
+								</div>
+								<div class="card-main__buttons row q-pb-sm">
+									<q-btn unelevated class="card-main__btn text-weight-bold col">
+										<span class="block">Забронировать</span>
+									</q-btn>
+									<q-btn unelevated class="card-main__btn text-weight-bold col" style="display: none;">
+										<span class="block">Перейти к предоплате</span>
+									</q-btn>
+								</div>
 							</div>
 						</div>
 
@@ -279,7 +289,11 @@
 		background-size: contain;
 		background-position: center;
 	}
+	.card-column {
+		padding: 4px;
+	}
 	.card-main {
+		flex: 0 1 100%;
 		border-radius: 24px;
 		background-color: #1C1E22;
 		overflow: hidden;
