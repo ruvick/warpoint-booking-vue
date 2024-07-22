@@ -1,5 +1,4 @@
 <script setup>
-
 import { ref, onMounted, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import HeaderMain from '@/components/HeaderMain.vue';
@@ -12,6 +11,10 @@ router.push({ name: 'country' });
 
 const goToCityPage = () => {
 router.push({ name: 'city' });
+};
+
+const goToLocationPage = () => {
+router.push({ name: 'location' });
 };
 
 const country = ref(localStorage.getItem('selectedCountry') || '');
@@ -65,7 +68,6 @@ localStorage.setItem('selectedPhone', newVal);
 watch(shape, (newVal) => {
 localStorage.setItem('selectedShape', JSON.stringify(newVal));
 });
-
 </script>
 
 <template>
@@ -150,7 +152,13 @@ localStorage.setItem('selectedShape', JSON.stringify(newVal));
 
 									<div class="input-main">
 										<div class="input-main__label">Локация</div>
-										<q-input class="input-main__input" v-model="location" placeholder="Выберите локацию" :dense="dense" >
+										<q-input 
+											class="input-main__input" 
+											v-model="location" 
+											placeholder="Выберите локацию" 
+											:dense="dense" 
+											 @click="goToLocationPage"
+											>
 											<template v-slot:append>
 												<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 													<path d="M7.5 5L12.5 10L7.5 15" stroke="#C4C8CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

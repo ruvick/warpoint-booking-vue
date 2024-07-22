@@ -2,15 +2,15 @@
 
 	import { ref } from 'vue';
 	import { useRouter } from 'vue-router';
-	import HeaderLocation from '@/components/HeaderLocation.vue'
+	import HeaderLocation from '@/components/HeaderLocation.vue';
 
 	const router = useRouter();
-	const shape = ref('line');
 
-	const selectCountry = (country) => {
-	localStorage.setItem('selectedCountry', country);
+	const selectLocation = (title, address) => {
+	const location = `${title} (${address})`;
+	localStorage.setItem('selectedLocation', location);
 	router.push({ name: 'main' });
-	};
+};
 
 </script>
 
@@ -23,7 +23,7 @@
 
 					<div class="location-cards row container-md q-pt-md q-pb-md">
 
-						<div class="location-card-column row col-xs-12 col-sm-6 col-md-4">
+						<div class="location-card-column row col-xs-12 col-sm-6 col-md-4" @click="selectLocation('ТРЦ «Авиапарк»', 'Ходынский бульвар, 4')">
 							<div class="location-card column items-start">
 								<div class="location-card__header header-location-card row q-mb-xl"> 
 									<div class="header-location-card__left col">
@@ -53,7 +53,7 @@
 							</div>
 						</div>
 
-						<div class="location-card-column row col-xs-12 col-sm-6 col-md-4">
+						<div class="location-card-column row col-xs-12 col-sm-6 col-md-4" @click="selectLocation('Академическая', 'ул. Винокурова 4 k1')">
 							<div class="location-card column items-start">
 								<div class="location-card__header header-location-card row q-mb-xl"> 
 									<div class="header-location-card__left col">
@@ -83,7 +83,7 @@
 							</div>
 						</div>
 
-						<div class="location-card-column row col-xs-12 col-sm-6 col-md-4">
+						<div class="location-card-column row col-xs-12 col-sm-6 col-md-4" @click="selectLocation('Волгоградский пр-т', 'Волгоградский пр-т 32 k8')">
 							<div class="location-card column items-start">
 								<div class="location-card__header header-location-card row q-mb-xl"> 
 									<div class="header-location-card__left col">
@@ -113,7 +113,7 @@
 							</div>
 						</div>
 
-						<div class="location-card-column row col-xs-12 col-sm-6 col-md-4">
+						<div class="location-card-column row col-xs-12 col-sm-6 col-md-4" @click="selectLocation('ТРК «Mari»', 'Волгоградский пр-т 32 k8')">
 							<div class="location-card column items-start">
 								<div class="location-card__header header-location-card row q-mb-xl"> 
 									<div class="header-location-card__left col">
@@ -144,16 +144,6 @@
 						</div>
 
 					</div>
-
-					<!-- <div class="page-internal container-md column items-start q-pt-md q-pb-md">
-					 <q-form class="col-md-4 column items-start">
-							<q-radio name="shape" v-model="shape" val="Russia" label="Россия" @click="selectCountry('Россия')" />
-							<q-radio name="shape" v-model="shape" val="Belarus" label="Беларусь" @click="selectCountry('Беларусь')" />
-							<q-radio name="shape" v-model="shape" val="Kazakhstan" label="Казахстан" @click="selectCountry('Казахстан')" />
-							<q-radio name="shape" v-model="shape" val="Kyrgyzstan" label="Кыргызстан" @click="selectCountry('Кыргызстан')" />
-							<q-radio name="shape" v-model="shape" val="Uzbekistan" label="Узбекистан" @click="selectCountry('Узбекистан')" />
-					 </q-form>
-					</div> -->
 
 			 </q-page>
 			</q-page-container>
