@@ -1,21 +1,26 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
-{
-    path: '/',
-    name: 'main',
-    component: () => import('../views/Main.vue')
-},
-{
-    path: '/country',
-    name: 'country',
-    component: () => import('../views/CountryPage.vue')
-},
-{
-	path: '/city',
-	name: 'city',
-	component: () => import('../views/CityPage.vue')
-}
+	{
+			path: '/',
+			name: 'main',
+			component: () => import('../views/Main.vue')
+	},
+	{
+			path: '/country',
+			name: 'country',
+			component: () => import('../views/CountryPage.vue')
+	},
+	{
+		path: '/city',
+		name: 'city',
+		component: () => import('../views/CityPage.vue')
+	},
+	{
+		path: '/location',
+		name: 'location',
+		component: () => import('../views/LocationPage.vue')
+	}
 ];
 
 const router = createRouter({
