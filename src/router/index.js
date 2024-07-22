@@ -20,6 +20,11 @@ const routes = [
 		path: '/location',
 		name: 'location',
 		component: () => import('../views/LocationPage.vue')
+	},
+	{
+		path: '/activity',
+		name: 'activity',
+		component: () => import('../views/ActivityPage.vue')
 	}
 ];
 

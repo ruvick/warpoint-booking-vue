@@ -12,7 +12,7 @@
 	router.push({ name: 'main' });
 };
 
-</script>
+</script> 
 
 <template>
 	<q-layout>
