@@ -317,6 +317,150 @@
 											</div>
 										</div>
 
+										<div class="services-card-column row col-xs-12 col-sm-6 col-md-4" @click="selectServices('VIP')">
+											<div class="services-card column items-start">
+												<div class="services-card__img">
+													<img src="../assets/img/services/13.png" loading="lazy" alt="Картинка">
+												</div>
+												<div class="services-card__header header-services-card">
+													<div class="header-services-card__title">VIP</div>
+													<div class="header-services-card__subtitle">Оплата за компанию</div>
+												</div>
+												<div class="services-card__footer footer-services-card row items-end">
+													<div class="footer-services-card__descp col">
+														<div class="footer-services-card__titme">4 час 45 мин</div>
+														<div class="footer-services-card__quantity">до 25 Человек</div>
+														<div class="footer-services-card__price">от 49 900 ₽</div>
+													</div>
+													<div class="footer-services-card__buttons col-auto">
+														<q-btn unelevated class="footer-services-card__btn text-weight-bold col">
+															<span class="block">Подробнее</span>
+														</q-btn>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="services-card-column row col-xs-12 col-sm-6 col-md-4" @click="selectServices('Start')">
+											<div class="services-card column items-start">
+												<div class="services-card__img">
+													<img src="../assets/img/services/14.png" loading="lazy" alt="Картинка">
+												</div>
+												<div class="services-card__header header-services-card">
+													<div class="header-services-card__title">Start</div>
+													<div class="header-services-card__subtitle">Оплата за компанию</div>
+												</div>
+												<div class="services-card__footer footer-services-card row items-end">
+													<div class="footer-services-card__descp col">
+														<div class="footer-services-card__titme">1 час 45 мин</div>
+														<div class="footer-services-card__quantity">до 8 Человек</div>
+														<div class="footer-services-card__price">от 12 900 ₽</div>
+													</div>
+													<div class="footer-services-card__buttons col-auto">
+														<q-btn unelevated class="footer-services-card__btn text-weight-bold col">
+															<span class="block">Подробнее</span>
+														</q-btn>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="services-card-column row col-xs-12 col-sm-6 col-md-4" @click="selectServices('Medium')">
+											<div class="services-card column items-start">
+												<div class="services-card__img">
+													<img src="../assets/img/services/15.png" loading="lazy" alt="Картинка">
+												</div>
+												<div class="services-card__header header-services-card">
+													<div class="header-services-card__title">Medium</div>
+													<div class="header-services-card__subtitle">Оплата за компанию</div>
+												</div>
+												<div class="services-card__footer footer-services-card row items-end">
+													<div class="footer-services-card__descp col">
+														<div class="footer-services-card__titme">1 час 45 мин</div>
+														<div class="footer-services-card__quantity">до 10 Человек</div>
+														<div class="footer-services-card__price">от 24 900 ₽</div>
+													</div>
+													<div class="footer-services-card__buttons col-auto">
+														<q-btn unelevated class="footer-services-card__btn text-weight-bold col">
+															<span class="block">Подробнее</span>
+														</q-btn>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="services-card-column row col-xs-12 col-sm-6 col-md-4" @click="selectServices('Big')">
+											<div class="services-card column items-start">
+												<div class="services-card__img">
+													<img src="../assets/img/services/16.png" loading="lazy" alt="Картинка">
+												</div>
+												<div class="services-card__header header-services-card">
+													<div class="header-services-card__title">Big</div>
+													<div class="header-services-card__subtitle">Оплата за компанию</div>
+												</div>
+												<div class="services-card__footer footer-services-card row items-end">
+													<div class="footer-services-card__descp col">
+														<div class="footer-services-card__titme">2 час 45 мин</div>
+														<div class="footer-services-card__quantity">до 15 Человек</div>
+														<div class="footer-services-card__price">от 40 900 ₽</div>
+													</div>
+													<div class="footer-services-card__buttons col-auto">
+														<q-btn unelevated class="footer-services-card__btn text-weight-bold col">
+															<span class="block">Подробнее</span>
+														</q-btn>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="services-card-column row col-xs-12 col-sm-6 col-md-4" @click="selectServices('Mini')">
+											<div class="services-card column items-start">
+												<div class="services-card__img">
+													<img src="../assets/img/services/17.png" loading="lazy" alt="Картинка">
+												</div>
+												<div class="services-card__header header-services-card">
+													<div class="header-services-card__title">Mini</div>
+													<div class="header-services-card__subtitle">Оплата за компанию</div>
+												</div>
+												<div class="services-card__footer footer-services-card row items-end">
+													<div class="footer-services-card__descp col">
+														<div class="footer-services-card__titme">1 час 45 мин</div>
+														<div class="footer-services-card__quantity">до 8 Человек</div>
+														<div class="footer-services-card__price">от 12 900 ₽</div>
+													</div>
+													<div class="footer-services-card__buttons col-auto">
+														<q-btn unelevated class="footer-services-card__btn text-weight-bold col">
+															<span class="block">Подробнее</span>
+														</q-btn>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="services-card-column row col-xs-12 col-sm-6 col-md-4" @click="selectServices('Mega')">
+											<div class="services-card column items-start">
+												<div class="services-card__img">
+													<img src="../assets/img/services/18.png" loading="lazy" alt="Картинка">
+												</div>
+												<div class="services-card__header header-services-card">
+													<div class="header-services-card__title">Mega</div>
+													<div class="header-services-card__subtitle">Оплата за компанию</div>
+												</div>
+												<div class="services-card__footer footer-services-card row items-end">
+													<div class="footer-services-card__descp col">
+														<div class="footer-services-card__titme">1 час 45 мин</div>
+														<div class="footer-services-card__quantity">до 10 Человек</div>
+														<div class="footer-services-card__price">от 24 900 ₽</div>
+													</div>
+													<div class="footer-services-card__buttons col-auto">
+														<q-btn unelevated class="footer-services-card__btn text-weight-bold col">
+															<span class="block">Подробнее</span>
+														</q-btn>
+													</div>
+												</div>
+											</div>
+										</div>
+
 									</div>
 
 						</div>
