@@ -298,7 +298,7 @@ localStorage.setItem('selectedShape', JSON.stringify(newVal));
 
 								</div>
 							</div>
-						</div>
+						</div> 
 
 						<div class="card-column row col-xs-12 col-sm-6 col-md-4">
 							<div class="card-main q-pt-lg">

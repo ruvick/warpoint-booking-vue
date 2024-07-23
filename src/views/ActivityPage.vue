@@ -2,7 +2,7 @@
 
 	import { ref } from 'vue';
 	import { useRouter } from 'vue-router';
-	import HeaderActivity from '@/components/HeaderActivity.vue';
+	import HeaderActivity from '@/components/HeaderActivity.vue'; 
 
 	const router = useRouter();
 
