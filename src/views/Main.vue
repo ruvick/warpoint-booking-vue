@@ -22,11 +22,15 @@
 		router.push({ name: 'activity' });
 	};
 
+	const goToServicesPage = () => {
+		router.push({ name: 'services' });
+	};
+
 const country = ref(localStorage.getItem('selectedCountry') || '');
 const city = ref(localStorage.getItem('selectedCity') || '');
 const location = ref(localStorage.getItem('selectedLocation') || '');
 const activity = ref(localStorage.getItem('selectedActivity') || '');
-const service = ref(localStorage.getItem('selectedService') || '');
+const services = ref(localStorage.getItem('selectedServices') || '');
 const dateTime = ref(localStorage.getItem('selectedDateTime') || '');
 const dense = ref(false);
 const promocode = ref(localStorage.getItem('selectedPromocode') || '');
@@ -50,8 +54,8 @@ watch(activity, (newVal) => {
 localStorage.setItem('selectedActivity', newVal);
 });
 
-watch(service, (newVal) => {
-localStorage.setItem('selectedService', newVal);
+watch(services, (newVal) => {
+localStorage.setItem('selectedServices', newVal);
 });
 
 watch(dateTime, (newVal) => {
@@ -202,7 +206,13 @@ localStorage.setItem('selectedShape', JSON.stringify(newVal));
 
 									<div class="input-main q-mb-lg">
 										<div class="input-main__label">Услуга</div>
-										<q-input class="input-main__input" v-model="service" placeholder="Выберите услугу" :dense="dense" >
+										<q-input 
+											class="input-main__input" 
+											v-model="services" 
+											placeholder="Выберите услугу" 
+											:dense="dense" 
+											@click="goToServicesPage"
+										>
 											<template v-slot:append>
 												<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 													<path d="M7.5 5L12.5 10L7.5 15" stroke="#C4C8CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

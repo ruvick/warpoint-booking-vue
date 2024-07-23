@@ -59,6 +59,66 @@
 										</div>
 									</div>
 
+									<div class="activity-card-column row col-xs-12 col-sm-6 col-md-4" @click="selectActivity('День рождения')">
+										<div class="activity-card column items-start">
+											<div class="activity-card__img q-mb-md">
+												<img src="../assets/img/activity/03.jpg" loading="lazy" alt="Картинка">
+											</div>
+											<div class="activity-card__title-block row justify-between items-center q-mb-md">
+												<div class="activity-card__title">День рождения</div>
+												<div class="activity-card__price">от 2 000 ₽</div>
+											</div>
+											<div class="activity-card__descp">
+												Командные VR-сражения, в которых одновременно могут принимать участие до 10-ти человек
+											</div>
+										</div>
+									</div>
+
+									<div class="activity-card-column row col-xs-12 col-sm-6 col-md-4" @click="selectActivity('Корпоратив')">
+										<div class="activity-card column items-start">
+											<div class="activity-card__img q-mb-md">
+												<img src="../assets/img/activity/04.jpg" loading="lazy" alt="Картинка">
+											</div>
+											<div class="activity-card__title-block row justify-between items-center q-mb-md">
+												<div class="activity-card__title">Корпоратив</div>
+												<div class="activity-card__price">от 2 000 ₽</div>
+											</div>
+											<div class="activity-card__descp">
+												Командные VR-сражения, в которых одновременно могут принимать участие до 10-ти человек											
+											</div>
+										</div>
+									</div>
+
+									<div class="activity-card-column row col-xs-12 col-sm-6 col-md-4" @click="selectActivity('Школьный выпускной')">
+										<div class="activity-card column items-start">
+											<div class="activity-card__img q-mb-md">
+												<img src="../assets/img/activity/05.jpg" loading="lazy" alt="Картинка">
+											</div>
+											<div class="activity-card__title-block row justify-between items-center q-mb-md">
+												<div class="activity-card__title">Школьный выпускной</div>
+												<div class="activity-card__price">от 2 000 ₽</div>
+											</div>
+											<div class="activity-card__descp">
+												Командные VR-сражения, в которых одновременно могут принимать участие до 10-ти человек
+											</div>
+										</div>
+									</div>
+
+									<div class="activity-card-column row col-xs-12 col-sm-6 col-md-4" @click="selectActivity('Выпускной')">
+										<div class="activity-card column items-start">
+											<div class="activity-card__img q-mb-md">
+												<img src="../assets/img/activity/06.jpg" loading="lazy" alt="Картинка">
+											</div>
+											<div class="activity-card__title-block row justify-between items-center q-mb-md">
+												<div class="activity-card__title">Выпускной</div>
+												<div class="activity-card__price">от 2 000 ₽</div>
+											</div>
+											<div class="activity-card__descp">
+												Командные VR-сражения, в которых одновременно могут принимать участие до 10-ти человек
+											</div>
+										</div>
+									</div>
+
 								</div>
 
 						</div>
