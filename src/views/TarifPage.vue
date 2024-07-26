@@ -8,45 +8,76 @@
 
 	const selectTarif = (title) => {
 	const tarif = `${title}`;
-	localStorage.setItem('selectedTarif', tarif);
+	sessionStorage.setItem('selectedTarif', tarif);
 	router.push({ name: 'main' });
 };
 
-</script> 
+</script>  
 
 <template>
 	<q-layout>
-			<q-page-container class="my-page-container body--grey">
+			<q-page-container class="my-page-container body--grey-light">
 			 <q-page class="page-internal q-pt-md q-pb-md q-pl-sm q-pr-sm"> 
 
 					<HeaderTarif/>
 
-					<div class="activity-inner column items-start" style="width: 100%;">
+					<div class="tarif-inner column items-start" style="width: 100%;">
 
-						<div class="container-md q-pt-md q-pl-sm q-pr-sm">
+						<div class="container-md q-pt-md q-pl-sm q-pr-sm"> 
 						
-									<div class="services-cards row q-pt-md q-pb-md">
+									<div class="tarif-cards row q-pt-md q-pb-md">
 
-										<div class="services-card-column row col-xs-12 col-sm-6 col-md-4" @click="selectServices('Открытая игра')">
-											<div class="services-card column items-start">
-												<div class="services-card__img">
-													<img src="../assets/img/services/01.png" loading="lazy" alt="Картинка">
-												</div>
-												<div class="services-card__header header-services-card">
-													<div class="header-services-card__title">Открытая игра</div>
-													<div class="header-services-card__subtitle">Оплата за игрока</div>
-												</div>
-												<div class="services-card__footer footer-services-card row items-end">
-													<div class="footer-services-card__descp col">
-														<div class="footer-services-card__titme">60 мин</div>
-														<div class="footer-services-card__quantity">2–10 Человек</div>
-														<div class="footer-services-card__price">от 1 300 ₽</div>
+										<div class="tarif-card-column row col-xs-12 col-sm-6 col-md-4" @click="selectTarif('Открытая игра')">
+											<div class="tarif-card column items-start q-mt-xl q-pt-xl q-pb-xl q-pl-md q-pr-md">
+												<div class="tarif-card__header header-tarif-card">
+													<div class="header-tarif-card__title q-mb-md">Игра компанией</div>
+													<div class="header-tarif-card__subtitle">
+														Исследуйте все грани 
+														нашей VR-вселенной! Отличный вариант для больших компаний. Погрузитесь 
+														в виртуальную реальность по максимуму! 
 													</div>
-													<div class="footer-services-card__buttons col-auto">
-														<q-btn unelevated class="footer-services-card__btn text-weight-bold col">
-															<span class="block">Подробнее</span>
-														</q-btn>
+												</div>
+												<div class="tarif-card__body body-tarif-card q-pb-md q-pt-md">
+													<div class="header-tarif-card__info info-tarif-card row justify-between q-mb-md"> 
+														<div class="info-tarif-card__left col-auto">
+															<div class="info-tarif-card__name q-mb-xs">Время</div>
+															<div class="info-tarif-card__value">3 часа 45 минут</div>
+														</div>
+														<div class="info-tarif-card__right col-auto">
+															<div class="info-tarif-card__name q-mb-xs">Участники</div>
+															<div class="info-tarif-card__value">До 20 человек</div>
+														</div>
 													</div>
+													<div class="header-tarif-card__img q-mb-md">
+														<img src="../assets/img/tarif/01.jpg" loading="lazy" alt="Картинка">
+													</div>
+													<div class="body-tarif-card__title">В программу включено:</div>
+													<ul class="body-tarif-card__list list-tarif-card">
+														<li class="list-tarif-card__item">Игра на арене WARPOINT</li>
+														<li class="list-tarif-card__item">Отдельная лаунж зона для проведения торжества</li>
+													</ul>
+													<ul class="body-tarif-card__list list-tarif-card">
+														<li class="list-tarif-card__item">Проведение турнира в честь именинника</li>
+														<li class="list-tarif-card__item">Игра на приставке </li>
+													</ul>
+													<ul class="body-tarif-card__list list-tarif-card">
+														<li class="list-tarif-card__item">60 катаний на VR-аттракционах</li>
+														<li class="list-tarif-card__item">4 шлема виртуальной реальности</li>
+													</ul>
+													<ul class="body-tarif-card__list list-tarif-card">
+														<li class="list-tarif-card__item">Поздравление именинника</li>
+														<li class="list-tarif-card__item">Бесплатный чай и кофе</li>
+														<li class="list-tarif-card__item">Пригласительные для гостей </li>
+													</ul>
+													<ul class="body-tarif-card__list list-tarif-card">
+														<li class="list-tarif-card__item">Запуск конфетти</li>
+														<li class="list-tarif-card__item">Профессиональный фотограф</li>
+													</ul>
+												</div>
+												<div class="tarif-card__footer footer-tarif-card">
+													<q-btn unelevated class="footer-tarif-card__btn text-weight-bold col">
+														<span class="block">Выбрать</span>
+													</q-btn>
 												</div>
 											</div>
 										</div>
@@ -63,88 +94,114 @@
 	</template>
 
 <style lang="scss">
+.body--grey-light {
+	background-color: #1c1e22fa;
+}
+.tarif-card-column {
+	padding: 4px;
+}
+.tarif-card {
+	position: relative;
+	flex: 0 1 100%;
+	background-color: #1C1E22;
+	border-radius: 32px;
+	overflow: hidden;
+}
+.tarif-card__header {
 
-.services-card-column {
-		padding: 4px;
-	}
-	.services-card {
-		position: relative;
-		flex: 0 1 100%;
-		min-height: 180px;
-		padding: 18px 18px 14px 18px;
-		background-color: #25272D;
-		border-radius: 15px;
-		overflow: hidden;
-	}
-	.services-card__img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    right: 0;
-		img {
-			width: 100%;
-			height: 100%;
-			object-fit: contain;
-			object-position: right;
-		}
-	}
-.services-card__header {
-	width: 100%;
-	flex: 1 1 auto;
-	z-index: 3;
 }
-.header-services-card {
+.header-tarif-card {
 }
-.header-services-card__title {
-	font-size: 16.22px;
-	font-weight: 600;
-	line-height: 18.02px;
-	letter-spacing: 0.02em;
-	color: #C7CCCC;
-	&:not(:last-child){
-		margin-bottom: 6px;
-	}
-}
-.header-services-card__subtitle {
-	font-size: 10.81px;
-	font-weight: 600;
-	line-height: 12.62px;
-	letter-spacing: 0.1em;
-	color: #535965;
-}
-.services-card__footer {
-	z-index: 3;
-}
-.footer-services-card {
-	width: 100%;
-	font-size: 10.81px;
-	font-weight: 600;
-	line-height: 12.62px;
-	letter-spacing: 0.1em;
+.header-tarif-card__title {
+	font-size: 20px;
+	font-weight: 900;
+	line-height: 20px;
 	text-transform: uppercase;
+	color: #0554F8;
+}
+.header-tarif-card__subtitle {
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 16px;
+	letter-spacing: 0.06em;
+	color: #C4C8CF;
+	text-transform: uppercase;
+}
+.tarif-card__body {
+
+}
+.body-tarif-card {
+}
+.header-tarif-card__info {
+}
+.info-tarif-card {
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 16px;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+}
+.info-tarif-card__left {
+}
+.info-tarif-card__name {
 	color: #535965;
 }
-.footer-services-card__titme {
-	&:not(:last-child){
-		margin-bottom: 6px;
-	}
-}
-.footer-services-card__quantity {
-	&:not(:last-child){
-		margin-bottom: 6px;
-	}
-}
-.footer-services-card__price {
+.info-tarif-card__value {
 	color: #C4C8CF;
 }
-.footer-services-card__btn {
-	font-size: 10.81px;
+.info-tarif-card__right {
+}
+.header-tarif-card__img {
+	position: relative;
+	padding-bottom: 59%;
+	border-radius: 14px;
+	overflow: hidden;
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;	
+			object-fit: cover;
+		}
+}
+.body-tarif-card__title {
+	font-size: 18px;
 	font-weight: 600;
-	line-height: 12.62px;
-	letter-spacing: 0.1em;
-	color: #C4C8CF;
-	background-color: #0554F8;
-	border-radius: 3.6px;
+	line-height: 20px;
+	letter-spacing: 0.02em;
+	color: #535965;
+	text-transform: uppercase;
 }
+.body-tarif-card__list {
+
+}
+.list-tarif-card {
+	padding: 0 0 0 30px;
+}
+.list-tarif-card__item {
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 20px;
+	color: #C4C8CF;
+}
+.tarif-card__footer {
+}
+.footer-tarif-card {
+}
+.footer-tarif-card {
+	width: 100%;
+}
+.footer-tarif-card__btn {
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 16px;
+	letter-spacing: 0.06em;
+	min-height: 40px;
+	color: #C4C8CF;
+	background-color: #0043CE;
+	border-radius: 8px;
+	width: 100%;
+}
+
 </style>

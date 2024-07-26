@@ -1,5 +1,10 @@
 <script setup>
 
+	import { useRoute } from 'vue-router';
+
+	const route = useRoute();
+	const label = route.params.label || 'Выберите тариф';
+
 </script>
 
 <template>
@@ -32,7 +37,7 @@
 			class="row justify-center items-center text-grey text-bold text-uppercase"
 			style="flex: 1 1 auto;"
 		>
-			Выберите услугу
+		{{ label }}
 		</div>
 	</div>
 

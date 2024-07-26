@@ -2,13 +2,13 @@
 
 	import { ref } from 'vue';
 	import { useRouter } from 'vue-router';
-	import HeaderLocation from '@/components/HeaderLocation.vue';
+	import Header from '@/components/Header.vue';
 
 	const router = useRouter();
 
 	const selectLocation = (title, address) => {
 	const location = `${title} (${address})`;
-	localStorage.setItem('selectedLocation', location);
+	sessionStorage.setItem('selectedLocation', location);
 	router.push({ name: 'main' });
 };
 
@@ -19,7 +19,7 @@
 			<q-page-container class="my-page-container body--grey">
 			 <q-page class="page-internal q-pt-md q-pb-md q-pl-sm q-pr-sm"> 
 
-					<HeaderLocation/>
+					<Header/>
 
 					<div class="location-cards row container-md q-pt-md q-pb-md">
 
