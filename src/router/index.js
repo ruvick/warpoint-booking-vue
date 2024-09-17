@@ -4,6 +4,11 @@ import { createRouter, createWebHistory } from 'vue-router';
 const routes = [
   {
     path: '/',
+    name: 'authorization',
+    component: () => import('../views/Authorization.vue'), // Страница авторизации
+  },
+	{
+    path: '/main/:label?',
     name: 'main',
     component: () => import('../views/Main.vue'), // Главная страница
   },

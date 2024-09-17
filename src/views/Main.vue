@@ -567,84 +567,84 @@
 					</div> 
 				</div>
 
-<!-- Dialog Top -->
-<q-dialog v-model="dialog" :position="'top'" transition-show="slide-down" transition-hide="slide-up" persistent>
-    <q-card class="auth-reg" style="max-width: 390px; width: 100%">
-     <q-card-section class="row items-center justify-between">
-        <q-btn unelevated class="account-btn text-weight-bold">
-         <span class="block">Еще нет аккаунта?</span>
-        </q-btn>
-        <q-btn unelevated class="reg-btn text-weight-bold">
-         <span class="block">Зарегистрироваться</span>
-        </q-btn>
-     </q-card-section>
-    </q-card>
-</q-dialog>
+				<!-- Dialog Top -->
+				<q-dialog v-model="dialog" :position="'top'" transition-show="slide-down" transition-hide="slide-up" persistent>
+						<q-card class="auth-reg" style="max-width: 390px; width: 100%">
+						<q-card-section class="row items-center justify-between">
+								<q-btn unelevated class="account-btn text-weight-bold">
+								<span class="block">Еще нет аккаунта?</span>
+								</q-btn>
+								<q-btn unelevated class="reg-btn text-weight-bold">
+								<span class="block">Зарегистрироваться</span>
+								</q-btn>
+						</q-card-section>
+						</q-card>
+				</q-dialog>
 
-<!-- Dialog Bottom -->
-<q-dialog v-model="seamless" seamless position="bottom" transition-show="slide-up" transition-hide="slide-down" persistent>
-    <q-card class="auth-dialog" style="max-width: 390px; width: 100%;">
-     <div class="autho-card-column col-xs-12 col-sm-6 col-md-4">
-        <div class="auth-card column items-start q-pt-sm q-pb-lg q-pl-lg q-pr-lg">
-         <q-card-section class="auth-card__icon">
-            <div class="auth-card__icon-tap"></div>
-         </q-card-section>
+				<!-- Dialog Bottom -->
+				<q-dialog v-model="seamless" seamless position="bottom" transition-show="slide-up" transition-hide="slide-down" persistent>
+						<q-card class="auth-dialog" style="max-width: 390px; width: 100%;">
+						<div class="autho-card-column col-xs-12 col-sm-6 col-md-4">
+								<div class="auth-card column items-start q-pt-sm q-pb-lg q-pl-lg q-pr-lg">
+								<q-card-section class="auth-card__icon">
+										<div class="auth-card__icon-tap"></div>
+								</q-card-section>
 
-         <div class="auth-card__header header-auth-card row justify-center q-pt-xl q-pb-xl">
-            <div class="header-auth-card__title col-8">
-             Войдите в свой аккаунт,
-             чтобы тратить баллы
-            </div>
-         </div>
-         <div class="auth-card__body body-auth-card">
-            <div class="input-main q-mb-lg">
-             <div class="input-main__label">Ваш телефон</div>
-             <q-input class="input-main__input" v-model="phone" :dense="dense"
-                mask="+7(###) - ### - ## - ##"
-                fill-mask
-             >
-                <template v-slot:prepend>
-                 <div class="input-main__flag">
-                    <svg fill="none" xmlns="http://www.w3.org/2000/svg">
-                     <g clip-path="url(#clip0_56_2611)">
-                        <rect width="25" height="20" rx="4" fill="white"/>
-                        <rect y="8" width="32" height="8" fill="#0077FF"/>
-                        <rect y="16" width="32" height="8" fill="#FB370B"/>
-                     </g>
-                     <defs>
-                        <clipPath id="clip0_56_2611">
-                         <rect width="25" height="20" rx="4" fill="white"/>
-                        </clipPath>
-                     </defs>
-                    </svg>
-                 </div>
-                </template>
-             </q-input>
-            </div>
+								<div class="auth-card__header header-auth-card row justify-center q-pt-xl q-pb-xl">
+										<div class="header-auth-card__title col-8">
+										Войдите в свой аккаунт,
+										чтобы тратить баллы
+										</div>
+								</div>
+								<div class="auth-card__body body-auth-card">
+										<div class="input-main q-mb-lg">
+										<div class="input-main__label">Ваш телефон</div>
+										<q-input class="input-main__input" v-model="phone" :dense="dense"
+												mask="+7(###) - ### - ## - ##"
+												fill-mask
+										>
+												<template v-slot:prepend>
+												<div class="input-main__flag">
+														<svg fill="none" xmlns="http://www.w3.org/2000/svg">
+														<g clip-path="url(#clip0_56_2611)">
+																<rect width="25" height="20" rx="4" fill="white"/>
+																<rect y="8" width="32" height="8" fill="#0077FF"/>
+																<rect y="16" width="32" height="8" fill="#FB370B"/>
+														</g>
+														<defs>
+																<clipPath id="clip0_56_2611">
+																<rect width="25" height="20" rx="4" fill="white"/>
+																</clipPath>
+														</defs>
+														</svg>
+												</div>
+												</template>
+										</q-input>
+										</div>
 
-            <div class="input-main q-mb-lg">
-             <div class="input-main__label">ПИН</div>
-             <q-input class="input-main__input" v-model.number="pin" type="number" placeholder="Код из смс" :dense="dense" />
-            </div>
+										<div class="input-main q-mb-lg">
+										<div class="input-main__label">ПИН</div>
+										<q-input class="input-main__input" v-model.number="pin" type="number" placeholder="Код из смс" :dense="dense" />
+										</div>
 
-            <div class="input-main q-mb-lg">
-             <q-btn unelevated class="btn-still" style="width: 100%;">
-                <span class="block">Отправить еще (48)</span>
-             </q-btn>
-            </div>
-         </div>
-         <div class="auth-card__footer footer-auth-card" v-close-popup>
-            <q-btn unelevated class="btn text-weight-bold" style="width: 100%;" @click="closeAllDialogs">
-             <span class="block">Подтвердить</span>
-            </q-btn>
-         </div>
-        </div>
-     </div>
-    </q-card>
-</q-dialog>
+										<div class="input-main q-mb-lg">
+										<q-btn unelevated class="btn-still" style="width: 100%;">
+												<span class="block">Отправить еще (48)</span>
+										</q-btn>
+										</div>
+								</div>
+								<div class="auth-card__footer footer-auth-card" v-close-popup>
+										<q-btn unelevated class="btn text-weight-bold" style="width: 100%;" @click="closeAllDialogs">
+										<span class="block">Подтвердить</span>
+										</q-btn>
+								</div>
+								</div>
+						</div>
+						</q-card>
+				</q-dialog>
 
-<!-- Затемнение -->
-<div v-show="dialog || seamless" class="q-dialog__backdrop" @click="closeAllDialogs"></div>
+				<!-- Затемнение -->
+				<div v-show="dialog || seamless" class="q-dialog__backdrop" @click="closeAllDialogs"></div>
 
 			</q-page>
 		</q-page-container>
