@@ -1,20 +1,43 @@
 <script setup>
+import { defineProps, defineEmits } from 'vue';
 
-	import {ref} from 'vue';
+// Определение свойств компонента
+const props = defineProps({
+  imageSrc: {
+    type: String,
+    required: true 
+  },
+  imageAlt: {
+    type: String,
+    required: true 
+  },
+  title: {
+    type: String,
+    required: true 
+  },
+  price: {
+    type: Number,
+    required: true 
+  },
+  description: {
+    type: String,
+    default: '' 
+  }
+});
 
-	defineProps ({
-		imageSrc: String,
-		imageAlt: String,
-		title: String,
-		price: Number,
-		description: String,  
-	})
+// Определение событий, которые компонент может эмитировать
+const emit = defineEmits(['select']);
+
+// Обработчик клика, который эмитирует событие 'select' с заголовком
+const handleClick = () => {
+  emit('select', props.title); 
+};
 
 </script>
 
 <template>
 
-	<div class="activity-card-column row col-xs-12 col-sm-6 col-md-4">
+	<div class="activity-card-column row col-xs-12 col-sm-6 col-md-4" @click="handleClick">
 		<div class="activity-card column items-start">
 			<div class="activity-card__img q-mb-md">
 				<img 

@@ -1,18 +1,23 @@
 <script setup>
-
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import Header from '@/components/Header.vue';
 
+// Инициализация роутера для навигации
 const router = useRouter();
 
+// Реактивные переменные для хранения номера подарочного сертификата и PIN-кода
 const numberCert = ref('');
 const pin = ref('');
 
+// Функция для добавления подарочного сертификата
 const addGiftCert = () => {
-sessionStorage.setItem('selectedGiftCert', numberCert.value);
-sessionStorage.setItem('pin', pin.value);
-router.push({ name: 'main' });
+  // Сохранение данных в sessionStorage
+  sessionStorage.setItem('selectedGiftCert', numberCert.value);
+  sessionStorage.setItem('pin', pin.value);
+  
+  // Перенаправление на страницу 'main'
+  router.push({ name: 'main' });
 };
 
 </script>

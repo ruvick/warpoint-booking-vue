@@ -4,17 +4,20 @@ import { useRouter } from 'vue-router';
 import axios from 'axios';
 import Header from '@/components/Header.vue';
 
+// Инициализация переменных
 const router = useRouter();
 const shape = ref('');
 const countries = ref([]);
 
+// Функция для выбора страны и сохранения данных в sessionStorage
 const selectCountry = (country) => {
-sessionStorage.setItem('selectedCountry', country.name); 
+sessionStorage.setItem('selectedCountry', country.name);
 sessionStorage.setItem('selectedCountryFlag', country.flag);
 sessionStorage.setItem('selectedPhoneMask', country.phoneMask);
 router.push({ name: 'main' });
 };
 
+// Функция для получения списка стран
 const fetchCountries = async () => {
 try {
     const response = await axios.get('https://restcountries.com/v3.1/all');
@@ -33,6 +36,7 @@ try {
 }
 };
 
+// Функция для получения маски телефона по коду страны
 const getPhoneMask = (countryCode) => {
 const phoneMasks = {
     RU: '+7(###) - ### - ## - ##',
@@ -44,6 +48,7 @@ const phoneMasks = {
 return phoneMasks[countryCode] || '+#(###) - ### - ## - ##';
 };
 
+// Выполняем fetchCountries при монтировании компонента
 onMounted(() => {
 fetchCountries();
 });

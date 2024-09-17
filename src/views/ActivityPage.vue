@@ -1,19 +1,19 @@
 <script setup>
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import Header from '@/components/Header.vue';
+import CardActivity from '@/components/Cards/CardActivity.vue';
 
-	import { ref } from 'vue';
-	import { useRouter } from 'vue-router';
-	import Header from '@/components/Header.vue';
-	import CardActivity from '@/components/Cards/CardActivity.vue';
+// Инициализация роутера
+const router = useRouter();
 
-	const router = useRouter();
-
-	const selectActivity = (title) => {
-	const activity = `${title}`;
-	sessionStorage.setItem('selectedActivity', activity);
-	router.push({ name: 'main' });
-	};
-
-</script> 
+// Функция для выбора активности
+const selectActivity = (title) => {
+const activity = title; // Присваиваем значение title переменной activity
+sessionStorage.setItem('selectedActivity', activity); // Сохраняем выбранную активность в sessionStorage
+router.push({ name: 'main' }); // Переходим на страницу 'main'
+};
+</script>
 
 <template>
 	<q-layout>
@@ -36,7 +36,7 @@
 											title="VR-Arena"
 											price="2 000"
 											description="Командные VR-сражения, в которых одновременно могут принимать участие до 10-ти человек"
-											@click="selectActivity('VR-Arena')"
+											@select="selectActivity"
 										/> 
 
 										<CardActivity
@@ -45,7 +45,7 @@
 											title="VR-Room"
 											price="2 000"
 											description="Победите плохих парней, спасите мир от зомби или сразитесь с мифическим чудовищем"
-											@click="selectActivity('VR-Room')"
+											@select="selectActivity"
 										/> 
 
 										<CardActivity
@@ -54,7 +54,7 @@
 											title="День рождения"
 											price="2 000"
 											description="Командные VR-сражения, в которых одновременно могут принимать участие до 10-ти человек"
-											@click="selectActivity('День рождения')"
+											@select="selectActivity"
 										/> 
 
 										<CardActivity
@@ -63,7 +63,7 @@
 											title="Корпоратив"
 											price="2 000"
 											description="Командные VR-сражения, в которых одновременно могут принимать участие до 10-ти человек"
-											@click="selectActivity('Корпоратив')"
+											@select="selectActivity"
 										/> 
 
 										<CardActivity
@@ -72,7 +72,7 @@
 											title="Школьный выпускной"
 											price="2 000"
 											description="Командные VR-сражения, в которых одновременно могут принимать участие до 10-ти человек"
-											@click="selectActivity('Школьный выпускной')"
+											@select="selectActivity"
 										/> 
 
 										<CardActivity
@@ -81,7 +81,7 @@
 											title="Выпускной"
 											price="2 000"
 											description="Командные VR-сражения, в которых одновременно могут принимать участие до 10-ти человек"
-											@click="selectActivity('Выпускной')"
+											@select="selectActivity"
 										/> 
 
 								</div>

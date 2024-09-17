@@ -1,18 +1,23 @@
 <script setup>
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import HeaderTarif from '@/components/HeaderTarif.vue'; 
 
-	import { ref } from 'vue';
-	import { useRouter } from 'vue-router';
-	import HeaderTarif from '@/components/HeaderTarif.vue'; 
+// Инициализация роутера для навигации
+const router = useRouter();
 
-	const router = useRouter();
-
-	const selectTarif = (title) => {
-	const tarif = `${title}`;
-	sessionStorage.setItem('selectedTarif', tarif);
-	router.push({ name: 'main' });
+// Функция для выбора тарифа
+const selectTarif = (title) => {
+  // Присвоение значения выбранного тарифа
+  const tarif = title; 
+  
+  // Сохранение выбранного тарифа в sessionStorage
+  sessionStorage.setItem('selectedTarif', tarif);
+  
+  // Перенаправление на страницу 'main'
+  router.push({ name: 'main' });
 };
-
-</script>  
+</script>
 
 <template>
 	<q-layout>

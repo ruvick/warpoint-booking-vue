@@ -4,31 +4,32 @@ import { useRouter } from 'vue-router';
 import HeaderBooking from '@/components/HeaderBooking.vue';
 
 export default {
-components: {
+  components: {
     HeaderBooking
-},
-setup() {
+  },
+  setup() {
     const router = useRouter();
-    const bookingData = ref({});
+    const bookingData = ref({}); // Реактивная переменная для хранения данных бронирования
 
+    // Загружаем данные бронирования из sessionStorage при монтировании компонента
     onMounted(() => {
-     const savedData = sessionStorage.getItem('bookingData');
-     if (savedData) {
-        bookingData.value = JSON.parse(savedData);
-     }
+      const savedData = sessionStorage.getItem('bookingData');
+      if (savedData) {
+        bookingData.value = JSON.parse(savedData); // Парсим и сохраняем данные в реактивную переменную
+      }
     });
 
+    // Функция для выбора бронирования
     const selectBooking = (title) => {
-     const booking = `${title}`;
-     sessionStorage.setItem('selectedBooking', booking);
-     router.push({ name: 'main' });
+      sessionStorage.setItem('selectedBooking', title); // Сохраняем выбранное бронирование в sessionStorage
+      router.push({ name: 'main' }); // Перенаправляем на страницу 'main'
     };
 
     return {
-     bookingData,
-     selectBooking
+      bookingData,
+      selectBooking
     };
-}
+  }
 };
 </script>
 
