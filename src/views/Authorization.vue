@@ -9,11 +9,17 @@
 
 	// Инициализация переменных с сохраненными значениями из sessionStorage или значениями по умолчанию
 	const password = ref(''); // Создаем реактивную переменную для пароля
+	const handleForgotPassword = () => {
+  // Логика для обработки забытого пароля
+  	console.log("Ссылка для сброса пароля отправлена");
+	};
 
 	// Функция для проверки заполненности поля
 	const isActive = (field) => {
 			return field && field.length > 0 ? '_active' : '';
 	};
+
+
 
 </script>
 
@@ -63,14 +69,22 @@
 								</div>
 
 								<div class="card-main__footer">
-									<div class="card-main__buttons row q-pb-sm">
-										<q-btn
-											unelevated
-											class="card-main__btn text-weight-bold col"
-											style="border-radius: 10px;"
-										>
-											<span class="block">Войти</span>
-										</q-btn>
+									<div class="card-main__buttonsq-pb-sm">
+											<q-btn
+												unelevated
+												class="card-main__btn _full text-weight-bold col"
+												style="border-radius: 10px;"
+											>
+												<span class="block">Войти</span>
+											</q-btn>
+
+											<q-btn
+												flat
+												class="text-primary"
+												@click="handleForgotPassword"
+											>
+												Забыли пароль?
+											</q-btn>
 									</div>
 								</div>
 
@@ -207,6 +221,12 @@
 			background-color: #0043CE;
 			border-radius: 24px;
 		}
+		.card-main__btn._full {
+			display: block;
+			width: 100%;
+		}
+
+
 		.participants {
 			font-size: 18px;
 			font-weight: 600;
