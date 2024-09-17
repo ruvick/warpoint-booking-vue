@@ -1,24 +1,19 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 import { useRouter } from 'vue-router';
-import axios from 'axios';
+import { fetchCities } from '@/api/cities';
 import Header from '@/components/Header.vue';
 
-// Инициализация роутера
 const router = useRouter();
-
-// Переменные состояния
 const shape = ref('line');
 const searchText = ref('');
 const cities = ref([]);
 
-// Вычисляемое свойство для фильтрации городов по тексту поиска
 const filteredCities = computed(() => {
     if (!searchText.value) return cities.value;
     return cities.value.filter(city => city.city.toLowerCase().includes(searchText.value.toLowerCase()));
 });
 
-// Вычисляемое свойство для группировки городов по первой букве
 const groupedCities = computed(() => {
     const groups = {};
     filteredCities.value.forEach(city => {
@@ -34,64 +29,19 @@ const groupedCities = computed(() => {
     }));
 });
 
-// Функция для выбора города и сохранения его в sessionStorage
 const selectCity = (city) => {
     sessionStorage.setItem('selectedCity', city);
     router.push({ name: 'main' });
 };
 
-// Функция для получения списка городов с API
-const fetchCities = async () => {
+onMounted(async () => {
     try {
         const selectedCountry = sessionStorage.getItem('selectedCountry');
-        const response = await axios.get('https://countriesnow.space/api/v0.1/countries/population/cities', {
-            headers: {
-                'Accept-Language': 'ru-RU'
-            }
-        });
-
-        // Разрешенные страны и их соответствия
-        const allowedCountries = {
-            'Россия': 'Russian Federation',
-            'Беларусь': 'Belarus',
-            'Казахстан': 'Kazakhstan',
-            'Кыргызстан': 'Kyrgyzstan',
-            'Узбекистан': 'Uzbekistan'
-        };
-
-        // Переводы городов
-        const translatedCities = {
-            // 'MOSKVA': 'Москва',
-            // 'Saint Petersburg': 'Санкт-Петербург',
-            // 'Novosibirsk': 'Новосибирск',
-            // 'Yekaterinburg': 'Екатеринбург',
-            // 'Nizhny Novgorod': 'Нижний Новгород',
-            // 'Kazan': 'Казань',
-            // 'Chelyabinsk': 'Челябинск',
-            // 'Omsk': 'Омск',
-            // 'Samara': 'Самара',
-            // 'Rostov-on-Don': 'Ростов-на-Дону',
-            // 'Ufa': 'Уфа',
-            // 'Krasnoyarsk': 'Красноярск',
-            // 'Voronezh': 'Воронеж',
-            // 'Perm': 'Пермь',
-            // 'Volgograd': 'Волгоград',
-        };
-
-        // Фильтрация и перевод городов
-        cities.value = response.data.data
-            .filter(city => allowedCountries[selectedCountry] === city.country)
-            .map(city => ({
-                ...city,
-                city: translatedCities[city.city] || city.city
-            }));
+        cities.value = await fetchCities(selectedCountry);
     } catch (error) {
         console.error('Error fetching cities:', error);
     }
-};
-
-// Вызов функции fetchCities при монтировании компонента
-onMounted(fetchCities);
+});
 </script>
 
 <template>
