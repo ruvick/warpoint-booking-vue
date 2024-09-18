@@ -7,139 +7,155 @@ import HeaderLogin from '@/components/HeaderLogin.vue';
 const router = useRouter();
 
 // Реактивные переменные
+const email = ref('');
 const password = ref('');
-const isAgreed = ref(false);
-const showAuthForm = ref(true); 
+const phone = ref('');
+const smsCode = ref('');
+const selectedOption = ref('email'); 
+
+const phoneMask = '+7(###) - ### - ## - ##';
+const defaultCountryFlag = '../src/assets/flag-def.svg';
+const countryFlag = ref(defaultCountryFlag);
+
+const options = [
+  { label: 'По email', value: 'email' },
+  { label: 'По телефону', value: 'phone' }
+];
 
 const handleForgotPassword = () => {
-console.log("Ссылка для сброса пароля отправлена");
+  console.log("Ссылка для сброса пароля отправлена");
 };
 
-const handleClick = () => {
-console.log('Кнопка нажата!');
-};
-
-const toggleForm = () => {
-showAuthForm.value = !showAuthForm.value; 
+const handleSubmit = () => {
+  if (selectedOption.value === 'email') {
+    // Логика для входа по email
+    console.log("Вход по email:", email.value, password.value);
+  } else {
+    // Логика для подтверждения по телефону
+    console.log("Подтверждение по телефону:", phone.value, smsCode.value);
+  }
 };
 </script>
 
+
 <template>
-<q-layout>
+  <q-layout>
     <q-page-container class="my-page-container body--dark-light">
-     <q-page class="page-main column q-pb-md">
+      <q-page class="page-main column q-pb-md">
+
         <HeaderLogin
-					style="position: fixed; z-index: 100; width: 100%;"
-				/>
+          style="position: fixed; z-index: 100; width: 100%;"
+        />
 
         <div class="page-main__body body-main row q-pb-lg q-pl-sm q-pr-sm" style="width: 100%; flex: 1 1 auto; padding-top: 100px;">
-         <div class="body-main__inner row container-md justify-center items-center">
-            <!-- Форма авторизации -->
-            <div v-if="showAuthForm" class="card-column row col-xs-12 col-sm-6 col-md-5">
-             <div class="card-main-inner">
+
+          <div class="body-main__wrapper" style="width: 100%;">
+            <div class="body-main__butons row items-center" style="max-width: 45%; margin: 0 auto 80px auto;">
+              <q-btn
+                class="no-hover"
+                primary
+                style="font-size: 11px; color: #C4C8CF; border: 1px solid #30343B; border-radius: 24px;"
+                @click="() => router.push({ name: 'logingame' })"
+              >
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 4px;">
+                  <path d="M12.5 5L7.5 10L12.5 15" stroke="#C4C8CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>На главную</span>
+              </q-btn>
+            </div>
+            <div class="body-main__inner row container-md justify-center items-center">
+              <div class="card-column row col-xs-12 col-sm-6 col-md-5">
                 <div class="card-main q-pt-lg q-pl-lg q-pr-lg q-pb-xl">
-                 <div class="card-main__header row justify-center items-center q-mb-xl">
+
+                  <div class="card-main__header row justify-center items-center q-mb-xl">
                     <div class="card-main__title text-h5 text-dark-10">Вход в аккаунт</div>
-                 </div>
-                 <div class="card-main__body">
-                    <div class="input-main q-mb-lg">
-                     <div class="input-main__label">Email</div>
-                     <q-input class="input-main__input" v-model="email" placeholder="youremail@email.com">
-                     </q-input>
-                    </div>
-                    <div class="input-main q-mb-lg">
-                     <div class="input-main__label">Пароль</div>
-                     <q-input class="input-main__input" v-model="password" placeholder="Введите Пароль" type="password">
-                     </q-input>
-                    </div>
-                 </div>
-                 <div class="card-main__footer">
-                    <div class="card-main__buttons q-pb-sm">
-                     <q-btn unelevated class="card-main__btn _full text-weight-bold col" style="border-radius: 10px;">
-                        <span class="block">Войти</span>
-                     </q-btn>
-                     <q-btn flat class="btn-def btn-right row justify-end text-right" style="width: 100%; color: #C4C8CF;" @click="handleForgotPassword">
-                        Забыли пароль?
-                     </q-btn>
-                    </div>
-                    <div class="card-main__buttons-social row items-center q-mt-sm">
-                     <q-btn class="btn-log" @click="handleClick" flat>
-                        <template v-slot:default>
-                         <img src="../assets/img/social/google.svg" alt="Icon" style="width: 24px; height: 24px;" />
-                        </template>
-                     </q-btn>
-                     <q-btn class="btn-log" @click="handleClick" flat>
-                        <template v-slot:default>
-                         <img src="../assets/img/social/vk.svg" alt="Icon" style="width: 24px; height: 24px;" />
-                        </template>
-                     </q-btn>
-                    </div>
-                 </div>
-                </div>
-                <div class="card-auth row items-center justify-between">
-                 <q-btn unelevated class="account-btn text-weight-bold" @click="toggleForm">
-                    <span class="block">Еще нет аккаунта?</span>
-                 </q-btn>
-                 <q-btn unelevated class="reg-btn text-weight-bold" @click="toggleForm">
-                    <span class="block">Зарегистрироваться</span>
-                 </q-btn>
-                </div>
-             </div>
-            </div>
+                  </div>
 
-            <!-- Форма регистрации -->
-            <div v-else class="card-column row col-xs-12 col-sm-6 col-md-5">
-             <div class="card-main q-pt-lg q-pl-lg q-pr-lg q-pb-xl">
-                <div class="card-main__inner">
-                 <div class="card-main__header row justify-center items-center q-pt-xl q-mb-xl">
-                    <div class="card-main__title text-h5 text-dark-10">Регистрация</div>
-                 </div>
-                 <div class="card-main__body">
-                    <div class="input-main input-main--row q-mb-lg">
-                     <q-input class="input-main__input" v-model="nameGame" placeholder="Ваше игровое имя">
-                        <span class="input-main__label">Игровое имя</span>
-                     </q-input>
-                    </div>
-                    <div class="input-main input-main--row q-mb-lg">
-                     <q-input class="input-main__input" v-model="email" placeholder="youremail@email.com">
-                        <span class="input-main__label">Email</span>
-                     </q-input>
-                    </div>
-                    <div class="input-main input-main--row q-mb-lg">
-                     <q-input class="input-main__input" v-model="password" placeholder="Придумайте пароль" type="password">
-                        <span class="input-main__label">Пароль</span>
-                     </q-input>
-                    </div>
-                    <div class="input-main input-main--row q-mb-lg">
-                     <q-input class="input-main__input" v-model="password" placeholder="Повторите пароль" type="password">
-                        <span class="input-main__label">Подтверждение пароля</span>
-                     </q-input>
-                    </div>
-                    <div class="input-main">
-                     <q-checkbox class="checkbox-main checkbox-main_log" v-model="isAgreed" size="md">
-                        <span class="input-main__label">
-                         С <a href="">правилами игры</a> ознакомлен и даю согласие на обработку своих <a href="">персональных данных</a>
-                        </span>
-                     </q-checkbox>
-                    </div>
-                 </div>
-                 <div class="card-main__footer q-mt-xl">
-                    <div class="card-main__buttons q-pb-sm">
-                     <q-btn unelevated class="card-main__btn _full text-weight-bold col" style="border-radius: 10px;">
-                        <span class="block">Зарегистрироваться</span>
-                     </q-btn>
-                    </div>
-                 </div>
-                </div>
-             </div>
-            </div>
+                  <div class="card-main__toggle q-pa-md">
+                    <q-btn-toggle
+                      v-model="selectedOption"
+                      :options="options"
+                      color="primary"
+                      text-color="white"
+                      unelevated
+                    />
+                  </div>
 
-         </div>
+                  <!-- Поля ввода в зависимости от выбранного способа -->
+                  <div v-if="selectedOption === 'email'">
+                    <div class="input-main q-mb-lg">
+                      <div class="input-main__label">Email</div>
+                      <q-input
+                        v-model="email"
+                        placeholder="youremail@email.com"
+                      />
+                    </div>
+                    <div class="input-main q-mb-lg">
+                      <div class="input-main__label">Пароль</div>
+                      <q-input
+                        v-model="password"
+                        placeholder="Введите Пароль"
+                        type="password"
+                      />
+                    </div>
+                  </div>
+
+                  <div v-else-if="selectedOption === 'phone'">
+
+										<div class="input-main q-mb-lg">
+											<div class="input-main__label">Телефон</div>
+											<q-input
+												class="input-main__input"
+												v-model="phone"
+												:mask="phoneMask"
+												fill-mask
+											>
+												<template v-slot:prepend>
+													<div class="input-main__flag">
+														<img :src="countryFlag" alt="flag" />
+													</div>
+												</template>
+											</q-input>
+										</div>
+
+                    <div class="input-main q-mb-lg">
+                      <div class="input-main__label">SMS-КОД</div>
+                      <q-input
+                        v-model="smsCode"
+                        placeholder="Введите код из SMS"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="card-main__footer">
+                    <q-btn
+                      unelevated
+                      class="card-main__btn _full text-weight-bold col"
+                      style="border-radius: 10px;"
+											@click="handleSubmit"
+                    >
+                      {{ selectedOption === 'email' ? 'Войти' : 'Подтвердить' }}
+                    </q-btn>
+                    <q-btn
+                      flat
+                      class="btn-def btn-right row justify-end text-right"
+                      style="width: 100%; color: #C4C8CF;"
+                      @click="handleForgotPassword"
+                    >
+                      {{ selectedOption === 'email' ? 'Забыли пароль?' : 'Отправить еще (48)' }}
+                    </q-btn>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-     </q-page>
+      </q-page>
     </q-page-container>
-</q-layout>
+  </q-layout>
 </template>
 
 <style lang="scss">
@@ -157,22 +173,6 @@ showAuthForm.value = !showAuthForm.value;
 	}
 	.card-main__title {
 		text-transform: uppercase;
-	}
-
-	.card-main-inner {
-		width: 100%;
-		.card-main {
-			border-radius: 24px 24px 0 0;
-		}
-		.card-auth {
-			background: #101114;
-			border-radius: 0px 0px 24px 24px;
-			overflow: hidden;
-			button {
-				flex: 1 1 auto;
-				min-height: 82px;
-			}
-		}
 	}
 
 	@media (min-width: 1360px) {

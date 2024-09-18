@@ -6,22 +6,6 @@ import HeaderLogin from '@/components/HeaderLogin.vue';
 // Инициализация роутера
 const router = useRouter();
 
-// Реактивные переменные
-const password = ref('');
-const isAgreed = ref(false);
-const showAuthForm = ref(true); // Новая реактивная переменная для управления видимостью форм
-
-const handleForgotPassword = () => {
-console.log("Ссылка для сброса пароля отправлена");
-};
-
-const handleClick = () => {
-console.log('Кнопка нажата!');
-};
-
-const toggleForm = () => {
-showAuthForm.value = !showAuthForm.value; // Переключение видимости форм
-};
 </script>
 
 <template>
@@ -35,11 +19,10 @@ showAuthForm.value = !showAuthForm.value; // Переключение видим
         <div class="page-main__body body-main row q-pb-lg q-pl-sm q-pr-sm" style="width: 100%; flex: 1 1 auto; padding-top: 100px;">
          <div class="body-main__inner row column container-md justify-center items-center">
            
-            <!-- <div class="card-column row col-xs-12 col-sm-6 col-md-3"> -->
 							<div class="card-login q-mb-xl">
 								<div class="card-login__icon">
 									<q-img
-										src="../assets/img/logo-white.svg" 
+										src="../assets/img/login-01.svg" 
 										alt="Logo"     
 										loading="lazy"      
 										style="width: 100%; height: auto;"
@@ -48,13 +31,11 @@ showAuthForm.value = !showAuthForm.value; // Переключение видим
 								<div class="card-login__text">Для игроков до 14 лет</div>
 								<div class="card-login__title">Зарегистрироваться</div>
 							</div>
-            <!-- </div> -->
 
-						<!-- <div class="card-column row col-xs-12 col-sm-6 col-md-3"> -->
 							<div class="card-login">
 								<div class="card-login__icon">
 									<q-img
-										src="../assets/img/logo-white.svg" 
+										src="../assets/img/login-02.svg" 
 										alt="Logo"     
 										loading="lazy"      
 										style="width: 100%; height: auto;"
@@ -63,15 +44,13 @@ showAuthForm.value = !showAuthForm.value; // Переключение видим
 								<div class="card-login__text">для игроков старше 14 лет</div>
 								<div class="card-login__title">Зарегистрироваться</div>
 							</div>
-            <!-- </div> -->
 
-						<q-separator dark class="q-mt-xl q-mb-xl" style="max-width: 400px; width: 100%;" />
+							<q-separator dark class="q-mt-xl q-mb-xl" style="max-width: 400px; width: 100%;" />
 
-						<!-- <div class="card-column row col-xs-12 col-sm-6 col-md-3"> -->
-							<div class="card-login">
+							<div class="card-login" @click="() => router.push({ name: 'authgame' })">
 								<div class="card-login__icon">
 									<q-img
-										src="../assets/img/logo-white.svg" 
+										src="../assets/img/login-03.svg" 
 										alt="Logo"     
 										loading="lazy"      
 										style="width: 100%; height: auto;"
@@ -80,7 +59,6 @@ showAuthForm.value = !showAuthForm.value; // Переключение видим
 								<div class="card-login__text">Уже есть аккаунт?</div>
 								<div class="card-login__title">Авторизоваться</div>
 							</div>
-            <!-- </div> -->
 
          </div>
         </div>
@@ -129,6 +107,7 @@ showAuthForm.value = !showAuthForm.value; // Переключение видим
 		line-height: 24px;
 		text-align: center;
 		color: #ADC4FC;
+		text-transform: uppercase;
 		margin-bottom: 8px;
 	}
 	.card-login__title {
@@ -137,6 +116,7 @@ showAuthForm.value = !showAuthForm.value; // Переключение видим
 		line-height: 30.8px;
 		letter-spacing: -0.01em;
 		color: #ECECEE;
+		text-transform: uppercase;
 	}
 </style>
 

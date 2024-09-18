@@ -13,6 +13,11 @@ const routes = [
     component: () => import('../views/LoginGame.vue'), // Страница входа в игру
   },
 	{
+    path: '/authgame/:label?',
+    name: 'authgame',
+    component: () => import('../views/AuthGame.vue'), // Страница авторизации в игру
+  },
+	{
     path: '/main/:label?',
     name: 'main',
     component: () => import('../views/Main.vue'), // Главная страница
