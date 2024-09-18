@@ -8,6 +8,11 @@ const routes = [
     component: () => import('../views/Login.vue'), // Страница авторизации
   },
 	{
+    path: '/logingame/:label?',
+    name: 'logingame',
+    component: () => import('../views/LoginGame.vue'), // Страница входа в игру
+  },
+	{
     path: '/main/:label?',
     name: 'main',
     component: () => import('../views/Main.vue'), // Главная страница

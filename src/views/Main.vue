@@ -572,10 +572,10 @@
 						<q-card class="auth-reg" style="max-width: 390px; width: 100%">
 						<q-card-section class="row items-center justify-between">
 								<q-btn unelevated class="account-btn text-weight-bold">
-								<span class="block">Еще нет аккаунта?</span>
+									<span class="block">Еще нет аккаунта?</span>
 								</q-btn>
 								<q-btn unelevated class="reg-btn text-weight-bold">
-								<span class="block">Зарегистрироваться</span>
+									<span class="block">Зарегистрироваться</span>
 								</q-btn>
 						</q-card-section>
 						</q-card>

@@ -16,7 +16,8 @@
     "pinia": "^2.1.7",
     "quasar": "^2.16.6",
     "vue": "^3.4.29",
-    "vue-router": "^4.3.3"
+    "vue-router": "^4.3.3",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@quasar/vite-plugin": "^1.7.0",
