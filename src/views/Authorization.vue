@@ -9,20 +9,19 @@
 
 	// Инициализация переменных с сохраненными значениями из sessionStorage или значениями по умолчанию
 	const password = ref(''); // Создаем реактивную переменную для пароля
+
+	const isAgreed = ref(false); // Переменная для состояния чекбокса
+
 	const handleForgotPassword = () => {
   // Логика для обработки забытого пароля
   	console.log("Ссылка для сброса пароля отправлена");
 	};
 
-	// Функция для проверки заполненности поля
-	const isActive = (field) => {
-			return field && field.length > 0 ? '_active' : '';
-	};
-
-
+	const handleClick = () => {
+      console.log('Button clicked!');
+  };
 
 </script>
-
 
 <template>
 
@@ -35,60 +34,176 @@
 				<div class="page-main__body body-main row q-pt-lg q-pb-lg q-pl-sm q-pr-sm" style="width: 100%; flex: 1 1 auto;">
 					<div class="body-main__inner row container-md justify-center items-center">
 
-						<div class="card-column row col-xs-12 col-sm-6 col-md-5">
-							<div class="card-main q-pt-lg q-pl-lg q-pr-lg q-pb-xl" style="">
-								<div class="card-main__header row justify-center items-center q-mb-xl">
-									<div class="card-main__title text-h5 text-dark-10">Вход в аккаунт</div>
-								</div>
+						<!-- <div class="card-column row col-xs-12 col-sm-6 col-md-5">
 
-								<div class="card-main__body">
+							<div class="card-main-inner">
+								<div class="card-main q-pt-lg q-pl-lg q-pr-lg q-pb-xl" style="">
 
-									<div class="input-main q-mb-lg">
-										<div class="input-main__label">Email</div>
-										<q-input 
-											class="input-main__input" 
-											v-model="email" 
-											placeholder="youremail@email.com" 
-											:class="isActive(email)"
-											>
-										</q-input>
+									<div class="card-main__header row justify-center items-center q-mb-xl">
+										<div class="card-main__title text-h5 text-dark-10">Вход в аккаунт</div>
 									</div>
 
-									<div class="input-main q-mb-lg">
-										<div class="input-main__label">Пароль</div>
-										<q-input
-											class="input-main__input"
-											v-model="password" 
-											placeholder="Введите Пароль" 
-											type="password"   
-											:class="isActive(password)"
-										>
-										</q-input>
+									<div class="card-main__body">
+
+										<div class="input-main q-mb-lg">
+											<div class="input-main__label">Email</div>
+											<q-input 
+												class="input-main__input" 
+												v-model="email" 
+												placeholder="youremail@email.com" 
+												:class="isActive(email)"
+												>
+											</q-input>
+										</div>
+
+										<div class="input-main q-mb-lg">
+											<div class="input-main__label">Пароль</div>
+											<q-input
+												class="input-main__input"
+												v-model="password" 
+												placeholder="Введите Пароль" 
+												type="password"   
+												:class="isActive(password)"
+											>
+											</q-input>
+										</div>
+
 									</div>
 
-								</div>
+									<div class="card-main__footer">
+										<div class="card-main__buttons q-pb-sm">
+												<q-btn
+													unelevated
+													class="card-main__btn _full text-weight-bold col"
+													style="border-radius: 10px;"
+												>
+													<span class="block">Войти</span>
+												</q-btn>
 
-								<div class="card-main__footer">
-									<div class="card-main__buttonsq-pb-sm">
+												<q-btn
+													flat
+													class="btn-def btn-right row justify-end text-right"
+													style="width: 100%; color: #C4C8CF;"
+													@click="handleForgotPassword"
+												>
+													Забыли пароль?
+												</q-btn>
+										</div>
+										<div class="card-main__buttons-social row items-center q-mt-sm">
 											<q-btn
-												unelevated
-												class="card-main__btn _full text-weight-bold col"
-												style="border-radius: 10px;"
-											>
-												<span class="block">Войти</span>
-											</q-btn>
-
-											<q-btn
+												class="btn-log"
+												@click="handleClick"
 												flat
-												class="text-primary"
-												@click="handleForgotPassword"
 											>
-												Забыли пароль?
+												<template v-slot:default>
+													<img src="../assets/img/social/google.svg" alt="Icon" style="width: 24px; height: 24px;" />
+												</template>
 											</q-btn>
+											<q-btn
+												class="btn-log"
+												@click="handleClick"
+												flat
+											>
+												<template v-slot:default>
+													<img src="../assets/img/social/vk.svg" alt="Icon" style="width: 24px; height: 24px;" />
+												</template>
+											</q-btn>
+										</div>
 									</div>
-								</div>
 
+								</div>
+								<div class="card-auth row items-center justify-between">
+									<q-btn unelevated class="account-btn text-weight-bold">
+										<span class="block">Еще нет аккаунта?</span>
+									</q-btn>
+									<q-btn unelevated class="reg-btn text-weight-bold">
+										<span class="block">Зарегистрироваться</span>
+									</q-btn>
+								</div>
 							</div>
+							
+						</div>  -->
+
+						<div class="card-column row col-xs-12 col-sm-6 col-md-6">
+
+								<div class="card-main q-pt-lg q-pl-lg q-pr-lg q-pb-xl" style="">
+
+									<div class="card-main__header row justify-center items-center q-mb-xl">
+										<div class="card-main__title text-h5 text-dark-10">Регистрация</div>
+									</div>
+
+									<div class="card-main__body">
+
+										<div class="input-main input-main--row q-mb-lg">
+											<q-input 
+												class="input-main__input" 
+												v-model="nameGame" 
+												placeholder="Ваше игровое имя" 
+												>
+												<span class="input-main__label">Игровое имя</span>
+											</q-input>
+										</div>
+
+										<div class="input-main input-main--row q-mb-lg">
+											<q-input 
+												class="input-main__input" 
+												v-model="email" 
+												placeholder="youremail@email.com" 
+												>
+												<span class="input-main__label">Email</span>
+											</q-input>
+										</div>
+
+										<div class="input-main input-main--row q-mb-lg">
+											<q-input
+												class="input-main__input"
+												v-model="password" 
+												placeholder="Придумайте пароль" 
+												type="password"   
+											>
+											<span class="input-main__label">Пароль</span>
+											</q-input>
+										</div>
+
+										<div class="input-main input-main--row q-mb-lg">
+											<q-input
+												class="input-main__input"
+												v-model="password" 
+												placeholder="Повторите пароль" 
+												type="password"   
+											>
+											<span class="input-main__label">Подтверждение пароля</span>
+											</q-input>
+										</div>
+
+										<div class="input-main">
+											<q-checkbox 
+												class="checkbox-main checkbox-main_log" 
+												v-model="isAgreed" 
+												size="md" 
+											>
+											<span class="input-main__label">
+												С <a href="">правилами игры</a> ознакомлен и даю согласие на обработку своих <a href="">персональных данных</a>
+											</span>
+											</q-checkbox>
+										</div>
+
+									</div>
+
+									<div class="card-main__footer q-mt-xl">
+										<div class="card-main__buttons q-pb-sm">
+												<q-btn
+													unelevated
+													class="card-main__btn _full text-weight-bold col"
+													style="border-radius: 10px;"
+												>
+													<span class="block">Зарегистрироваться</span>
+												</q-btn>
+										</div>
+
+									</div>
+
+								</div>
 						</div> 
 
 					</div> 
@@ -116,6 +231,23 @@
 	.card-main__title {
 		text-transform: uppercase;
 	}
+
+	.card-main-inner {
+		width: 100%;
+		.card-main {
+			border-radius: 24px 24px 0 0;
+		}
+		.card-auth {
+			background: #101114;
+			border-radius: 0px 0px 24px 24px;
+			overflow: hidden;
+			button {
+				flex: 1 1 auto;
+				min-height: 82px;
+			}
+		}
+	}
+
 	.text-h8 {
 		font-size: 11px;
 		font-weight: 600;
@@ -493,6 +625,79 @@
 		height: 20px;
 		overflow: hidden;
 	}
+//========================================================================================================================================================
+.btn-def {
+	
+}
+.btn-right .q-btn__content {
+	display: flex;
+  text-align: right;
+  justify-content: flex-end;
+	font-size: 13px;
+}
+.card-main__buttons-social  {
+	gap: 8px;
+}
+.btn-log {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex: 1 1 auto;
+	border: 1px solid #8F96A380;
+	border-radius: 8px;
+	min-height: 48px;
+}
 
+.input-main--row {
+	display: flex;
+	align-items: center;
+	.input-main__input {
+		width: 100%;
+	}
+	.q-field__control-container {
+		display: flex;
+		align-items: center;
+		flex-direction: row-reverse;
+	}
+	.input-main__label {
+		flex: 0 1 55%;
+		font-size: 13px;
+		font-weight: 600;
+		line-height: 16px;
+		letter-spacing: 0.06em;
+		margin-top: 5px;
+	}
+}
+
+.checkbox-main_log {
+	.q-checkbox__bg {
+		top: 0;
+	}
+	 .q-checkbox__label {
+		font-size: 20px;
+		font-weight: 600;
+		line-height: 20px;
+		letter-spacing: 0.02em;
+    color: #535965;
+    white-space: normal;
+		.input-main__label {
+			font-size: 20px;
+		font-weight: 600;
+		line-height: 20px;
+		letter-spacing: 0.02em;
+		}
+		a {
+			color: #0554F8;
+		}
+	}
+}
+
+@media (any-hover: hover){
+	 .btn-right:hover { 
+	  .q-focus-helper {
+    	opacity: 0 !important;
+		}
+	} 
+}
 </style>
 
