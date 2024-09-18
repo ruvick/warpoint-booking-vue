@@ -124,81 +124,85 @@
 							
 						</div>  -->
 
-						<div class="card-column row col-xs-12 col-sm-6 col-md-6">
+						<div class="card-column row col-xs-12 col-sm-6 col-md-5">
 
-								<div class="card-main q-pt-lg q-pl-lg q-pr-lg q-pb-xl" style="">
+								<div class="card-main q-pt-lg q-pl-lg q-pr-lg q-pb-xl">
 
-									<div class="card-main__header row justify-center items-center q-mb-xl">
-										<div class="card-main__title text-h5 text-dark-10">Регистрация</div>
-									</div>
+									<div class="card-main__inner">
 
-									<div class="card-main__body">
+										<div class="card-main__header row justify-center items-center q-pt-xl q-mb-xl">
+											<div class="card-main__title text-h5 text-dark-10">Регистрация</div>
+										</div>
 
-										<div class="input-main input-main--row q-mb-lg">
-											<q-input 
-												class="input-main__input" 
-												v-model="nameGame" 
-												placeholder="Ваше игровое имя" 
+										<div class="card-main__body">
+
+											<div class="input-main input-main--row q-mb-lg">
+												<q-input 
+													class="input-main__input" 
+													v-model="nameGame" 
+													placeholder="Ваше игровое имя" 
+													>
+													<span class="input-main__label">Игровое имя</span>
+												</q-input>
+											</div>
+
+											<div class="input-main input-main--row q-mb-lg">
+												<q-input 
+													class="input-main__input" 
+													v-model="email" 
+													placeholder="youremail@email.com" 
+													>
+													<span class="input-main__label">Email</span>
+												</q-input>
+											</div>
+
+											<div class="input-main input-main--row q-mb-lg">
+												<q-input
+													class="input-main__input"
+													v-model="password" 
+													placeholder="Придумайте пароль" 
+													type="password"   
 												>
-												<span class="input-main__label">Игровое имя</span>
-											</q-input>
-										</div>
+												<span class="input-main__label">Пароль</span>
+												</q-input>
+											</div>
 
-										<div class="input-main input-main--row q-mb-lg">
-											<q-input 
-												class="input-main__input" 
-												v-model="email" 
-												placeholder="youremail@email.com" 
+											<div class="input-main input-main--row q-mb-lg">
+												<q-input
+													class="input-main__input"
+													v-model="password" 
+													placeholder="Повторите пароль" 
+													type="password"   
 												>
-												<span class="input-main__label">Email</span>
-											</q-input>
-										</div>
+												<span class="input-main__label">Подтверждение пароля</span>
+												</q-input>
+											</div>
 
-										<div class="input-main input-main--row q-mb-lg">
-											<q-input
-												class="input-main__input"
-												v-model="password" 
-												placeholder="Придумайте пароль" 
-												type="password"   
-											>
-											<span class="input-main__label">Пароль</span>
-											</q-input>
-										</div>
-
-										<div class="input-main input-main--row q-mb-lg">
-											<q-input
-												class="input-main__input"
-												v-model="password" 
-												placeholder="Повторите пароль" 
-												type="password"   
-											>
-											<span class="input-main__label">Подтверждение пароля</span>
-											</q-input>
-										</div>
-
-										<div class="input-main">
-											<q-checkbox 
-												class="checkbox-main checkbox-main_log" 
-												v-model="isAgreed" 
-												size="md" 
-											>
-											<span class="input-main__label">
-												С <a href="">правилами игры</a> ознакомлен и даю согласие на обработку своих <a href="">персональных данных</a>
-											</span>
-											</q-checkbox>
-										</div>
-
-									</div>
-
-									<div class="card-main__footer q-mt-xl">
-										<div class="card-main__buttons q-pb-sm">
-												<q-btn
-													unelevated
-													class="card-main__btn _full text-weight-bold col"
-													style="border-radius: 10px;"
+											<div class="input-main">
+												<q-checkbox 
+													class="checkbox-main checkbox-main_log" 
+													v-model="isAgreed" 
+													size="md" 
 												>
-													<span class="block">Зарегистрироваться</span>
-												</q-btn>
+												<span class="input-main__label">
+													С <a href="">правилами игры</a> ознакомлен и даю согласие на обработку своих <a href="">персональных данных</a>
+												</span>
+												</q-checkbox>
+											</div>
+
+										</div>
+
+										<div class="card-main__footer q-mt-xl">
+											<div class="card-main__buttons q-pb-sm">
+													<q-btn
+														unelevated
+														class="card-main__btn _full text-weight-bold col"
+														style="border-radius: 10px;"
+													>
+														<span class="block">Зарегистрироваться</span>
+													</q-btn>
+											</div>
+
 										</div>
 
 									</div>
@@ -246,6 +250,13 @@
 				min-height: 82px;
 			}
 		}
+	}
+
+	@media (min-width: 1360px) {
+		.card-main__inner {
+			max-width: 500px;
+			margin: 0px auto;
+		}  
 	}
 
 	.text-h8 {
@@ -680,14 +691,17 @@
 		letter-spacing: 0.02em;
     color: #535965;
     white-space: normal;
+		text-transform: none;
 		.input-main__label {
 			font-size: 20px;
 		font-weight: 600;
 		line-height: 20px;
 		letter-spacing: 0.02em;
+		text-transform: none;
 		}
 		a {
 			color: #0554F8;
+			text-decoration: none;
 		}
 	}
 }
