@@ -5,7 +5,7 @@ const routes = [
   {
     path: '/',
     name: 'authorization',
-    component: () => import('../views/Authorization.vue'), // Страница авторизации
+    component: () => import('../views/Login.vue'), // Страница авторизации
   },
 	{
     path: '/main/:label?',
