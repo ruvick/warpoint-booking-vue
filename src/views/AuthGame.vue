@@ -71,11 +71,10 @@ const handleSubmit = () => {
                     <div class="card-main__title text-h5 text-dark-10">Вход в аккаунт</div>
                   </div>
 
-                  <div class="card-main__toggle q-pa-md">
+                  <div class="card-main__toggle toggle-buttons row items-center q-mt-xl q-mb-xl">
                     <q-btn-toggle
                       v-model="selectedOption"
                       :options="options"
-                      color="primary"
                       text-color="white"
                       unelevated
                     />
@@ -635,6 +634,25 @@ const handleSubmit = () => {
     	opacity: 0 !important;
 		}
 	} 
+}
+//========================================================================================================================================================
+.toggle-buttons {
+	padding: 6px;
+	border-radius: 16px;
+	background-color: #25272D;
+	.q-btn-toggle {
+		width: 100%;
+		min-height: 48px;
+		border-radius: 16px !important;
+			.bg-primary {
+			background-color: #101114 !important;
+			box-shadow: 0px 4px 12px 0px #00000033;
+		}
+	}
+	.q-btn {
+		flex: 1 1 auto;
+		border-radius: 16px !important;
+	}
 }
 </style>
 
