@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch } from 'vue';
+import { ref, watch, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import HeaderLogin from '@/components/HeaderLogin.vue';
 
@@ -71,8 +71,13 @@ const source = ref(null);
 	{ label: 'ТВ', value: 'tv' }
 	];
 
-	const currentStep = ref(1);
+const currentStep = ref(1);
 const stepCount = ref(3); // Общее количество шагов
+
+// Вычисляем ширину прогресс-бара
+const progressBarWidth = computed(() => {
+    return `${(currentStep.value / stepCount.value) * 100}%`;
+});
 
 function nextStep() {
     if (currentStep.value < stepCount.value) {
@@ -310,7 +315,9 @@ window.addEventListener('beforeunload', () => {
 							<div class="butons-body-main__stages stages-box">
 								<!-- <div class="stages-box__value">1 из 3</div>   -->
 								<div class="stages-box__value">{{ currentStep }} из {{ stepCount }}</div>
-								<div class="stages-box__progressbar"></div>
+								<div class="stages-box__progressbar">
+									<div class="stages-box__progress" :style="{ width: progressBarWidth }"></div>
+								</div>
 							</div>
                   </div>
 
@@ -755,8 +762,6 @@ window.addEventListener('beforeunload', () => {
 	.stages-box__value:not(:last-child){
 		margin-bottom: 7px; 
 	}
-	.stages-box__progressbar {
-	}
 
 	.btn-def {
 		&.q-btn:before {
@@ -832,6 +837,23 @@ window.addEventListener('beforeunload', () => {
 		line-height: 21.78px;
 		color: #C4C8CF;
 	}
+
+	.stages-box {
+}
+
+.stages-box__progressbar {
+    width: 100%;
+    height: 5px;
+    background-color: grey;
+    border-radius: 5px;
+}
+
+.stages-box__progress {
+    height: 100%;
+    background-color: #5B89F8;
+    border-radius: inherit;
+    transition: width .3s ease; 
+}
 
 	::-webkit-scrollbar {
 		overflow-y: scroll;
