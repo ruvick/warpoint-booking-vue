@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import HeaderLogin from '@/components/HeaderLogin.vue';
 
@@ -16,6 +16,21 @@ const selectedOption = ref('email');
 const phoneMask = '+7(###) - ### - ## - ##';
 const defaultCountryFlag = '../src/assets/flag-def.svg';
 const countryFlag = ref(defaultCountryFlag);
+
+// Создаем реактивные переменные для чекбоксов
+const isMale = ref(false);
+const isFemale = ref(false);
+
+// Следим за состоянием чекбоксов
+watch([isMale, isFemale], ([newMale, newFemale]) => {
+  // Если выбран один пол, снимаем выбор с другого
+  if (newMale) {
+    isFemale.value = false;
+  }
+  if (newFemale) {
+    isMale.value = false;
+  }
+});
 
 const options = [
   { label: 'По email', value: 'email' },
@@ -229,7 +244,9 @@ window.addEventListener('beforeunload', () => {
             <div class="body-main__inner row container-md justify-center items-center">
 
               <div class="card-column row col-xs-12 col-sm-6 col-md-4">
+
                 <div class="card-main">
+
                   <div class="card-main__header header-card-main row justify-between items-center q-pt-xs q-pl-lg q-pr-lg q-pb-xs" style="min-height: 64px; background-color: #1f2024;">
 							<div class="butons-body-main__btn">
 								<q-btn
@@ -257,10 +274,9 @@ window.addEventListener('beforeunload', () => {
 
 						<div class="card-main__wrapper" style="max-block-size: 961px; overflow: auto;">
 
-							<div class="card-main__body q-pt-lg q-pl-lg q-pr-lg q-pb-lg" style="margin-bottom: 80px;">
+							<!-- <div data-step="1" class="card-main__body q-pt-lg q-pl-lg q-pr-lg q-pb-lg">
 
-								<div class="input-main q-mb-lg">
-									<div class="input-main__label">Страна</div>
+								<div class="input-main input-main--row input-main--pos q-mb-lg" style="position: relative; flex-direction: row-reverse;">
 										<q-input
 											class="input-main__input"
 											v-model="country"
@@ -273,28 +289,11 @@ window.addEventListener('beforeunload', () => {
 											<img :src="countryFlag" alt="flag" />
 											</div>
 										</template>
-										<template v-slot:append>
-											<svg
-											width="20"
-											height="20"
-											viewBox="0 0 20 20"
-											fill="none"
-											xmlns="http://www.w3.org/2000/svg"
-											>
-											<path
-												d="M7.5 5L12.5 10L7.5 15"
-												stroke="#C4C8CF"
-												stroke-width="2"
-												stroke-linecap="round"
-												stroke-linejoin="round"
-											/>
-											</svg>
-										</template>
 									</q-input>
+									<span class="input-main__label">Страна</span>
 								</div>
 
-								<div class="input-main q-mb-lg">
-									<div class="input-main__label">Город</div>
+								<div class="input-main input-main--row q-mb-lg">
 									<q-input
 										class="input-main__input"
 										v-model="city"
@@ -319,11 +318,11 @@ window.addEventListener('beforeunload', () => {
 												/>
 											</svg>
 										</template>
+										<span class="input-main__label">Город</span>
 									</q-input>
 								</div>
 
-								<div class="input-main">
-									<div class="input-main__label">Локация</div>
+								<div class="input-main input-main--row">
 									<q-input 
 										class="input-main__input" 
 										v-model="location" 
@@ -331,55 +330,51 @@ window.addEventListener('beforeunload', () => {
 										@click="goToPage('location', 'Выберите локацию')"
 										:class="isActive(location)"
 										>
-										<template v-slot:append>
-											<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M7.5 5L12.5 10L7.5 15" stroke="#C4C8CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-											</svg>
-									</template>
+											<template v-slot:append>
+												<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M7.5 5L12.5 10L7.5 15" stroke="#C4C8CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+												</svg>
+										</template>
+										<span class="input-main__label">Локация</span>
 									</q-input>
 								</div>
 
-							</div>
+								<div class="card-main__title row justify-center text-h6 q-mb-lg" style="text-align: center; color: #fff; margin-top: 80px;">Данные родителя / законного представителя</div>
 
-							<div class="card-main__title row justify-center text-h6 q-pl-lg q-pr-lg q-mb-md" style="text-align: center; color: #fff;">Данные родителя / законного представителя</div>
-
-							<div class="card-main__body q-pt-lg q-pl-lg q-pr-lg q-pb-lg">
-
-								<div class="input-main q-mb-lg">
-									<div class="input-main__label">Имя</div>
+								<div class="input-main input-main--row q-mb-lg">
 									<q-input 
 										class="input-main__input" 
 										v-model="name" 
 										placeholder="Имя" 
 										:class="isActive(name)"
 										>
+										<span class="input-main__label">Имя</span>
 									</q-input>
 								</div>
 
-								<div class="input-main q-mb-lg">
-									<div class="input-main__label">Фамилия</div>
+								<div class="input-main input-main--row q-mb-lg">
 									<q-input 
 										class="input-main__input" 
 										v-model="surname" 
 										placeholder="Фамилия" 
 										:class="isActive(surname)"
 										>
+										<span class="input-main__label">Фамилия</span>
 									</q-input>
 								</div>
 
-								<div class="input-main q-mb-lg">
-									<div class="input-main__label">Отчество</div>
+								<div class="input-main input-main--row q-mb-lg">
 									<q-input 
 										class="input-main__input" 
 										v-model="patronymic" 
 										placeholder="Отчество" 
 										:class="isActive(patronymic)"
 										>
+										<span class="input-main__label">Отчество</span>
 									</q-input>
 								</div>
 
-								<div class="input-main q-mb-lg">
-									<div class="input-main__label">Телефон</div>
+								<div class="input-main input-main--row q-mb-lg" style="position: relative; flex-direction: row-reverse;">
 									<q-input
 										class="input-main__input"
 										v-model="phone"
@@ -393,18 +388,118 @@ window.addEventListener('beforeunload', () => {
 											</div>
 										</template>
 									</q-input>
+									<span class="input-main__label">Телефон</span>
 								</div>
 
-								<div class="input-main q-mb-lg">
-									<div class="input-main__label">Email</div>
+								<div class="input-main input-main--row q-mb-lg">
 									<q-input 
 										class="input-main__input" 
 										v-model="email" 
 										placeholder="Введите Email" 
 										:class="isActive(email)"
 										>
+										<span class="input-main__label">Email</span>
 									</q-input>
 								</div>
+
+							</div> -->
+
+							<div data-step="2" class="card-main__body q-pt-lg q-pl-lg q-pr-lg q-pb-lg">
+
+								<div class="card-main__player player-card q-mb-xl">
+
+									<div class="player-card__item row items-center q-mb-lg">
+											<q-img
+												class="player-card__icon q-mr-md"
+												src="../assets/img/player01.svg" 
+												alt="Logo"     
+												loading="lazy"      
+												style="max-width: 24px; width: 100%; height: 24px;"
+											/>
+										<div class="player-card__text">Игрок 1</div>
+									</div>
+
+									<div class="input-main input-main--row q-mb-lg">
+										<q-input 
+											class="input-main__input" 
+											v-model="surname" 
+											placeholder="Фамилия" 
+											:class="isActive(surname)"
+											>
+											<span class="input-main__label">Фамилия ребенка</span>
+										</q-input>
+									</div>
+
+									<div class="input-main input-main--row q-mb-lg">
+										<q-input 
+											class="input-main__input" 
+											v-model="name" 
+											placeholder="Имя ребенка" 
+											:class="isActive(name)"
+											>
+											<span class="input-main__label">Имя ребенка</span>
+										</q-input>
+									</div>
+
+									<div class="input-main input-main--row q-mb-lg">
+										<q-input 
+											class="input-main__input" 
+											v-model="patronymic" 
+											placeholder="Отчество" 
+											:class="isActive(patronymic)"
+											>
+											<span class="input-main__label">Отчество ребенка</span>
+										</q-input>
+									</div>
+
+									<div class="input-main input-main--row q-mb-lg">
+										<q-input 
+											class="input-main__input" 
+											v-model="birthDate" 
+											placeholder="дд/мм/г" 
+											:class="isActive(birthDate)"
+											mask="##/##/##"
+										>
+											<span class="input-main__label">Дата рождения</span>
+										</q-input>
+									</div>
+
+									<div class="input-main input-main--row q-mb-lg">
+										<span class="input-main__label">Пол</span>
+										<div class="input-main__input">
+											<q-checkbox 
+											v-model="isMale" 
+											label="М" 
+											class="custom-checkbox q-mr-sm"
+											/>
+											<q-checkbox 
+											v-model="isFemale" 
+											label="Ж" 
+											class="custom-checkbox"
+											/>
+										</div>
+									</div>
+
+									<div class="input-main input-main--row q-mb-lg">
+										<q-input 
+											class="input-main__input" 
+											v-model="name" 
+											placeholder="Игровое имя" 
+											:class="isActive(name)"
+											>
+											<span class="input-main__label">Игровое имя</span>
+										</q-input>
+									</div>
+
+								</div>
+
+								<q-btn class="card-main__btn _full text-weight-bold" style="border-radius: 10px; border: 2px solid #8e8e90; background-color: transparent; color: white;">
+									<svg class="q-mr-md" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<rect width="32" height="32" rx="16" fill="#44A248"/>
+										<path d="M20.6344 17.5233V15.4091H10.3656V17.5233H20.6344ZM16.6634 21.9082V11.013H14.3478V21.9082H16.6634Z" fill="white"/>
+									</svg>
+									<span class="block">Добавить ещё игрока</span>
+								</q-btn>
 
 							</div>
 
@@ -413,12 +508,13 @@ window.addEventListener('beforeunload', () => {
 									<q-btn unelevated class="card-main__btn _full text-weight-bold col" style="border-radius: 10px;">
 										<span class="block">Далее</span>
 									</q-btn>
+								</div>
 							</div>
-							</div>
-
+							
 						</div>
 
                 </div>
+
               </div>
 				  
             </div>
@@ -486,6 +582,43 @@ window.addEventListener('beforeunload', () => {
 		}
 		.q-focus-helper {
 			opacity: 0 !important;
+		}
+	}
+
+	.player-card {
+	}
+	.player-card__icon {
+	}
+	.player-card__text {
+		font-size: 18px;
+		font-weight: 500;
+		line-height: 21.78px;
+		color: #44A248;
+	}
+
+	.custom-checkbox {
+		font-size: 20px;
+		font-weight: 600;
+		line-height: 24px;
+		color: #D9D9D9; 
+		.q-checkbox__inner {
+			font-size: 40px;
+			width: 1em;
+			min-width: 1em;
+			height: 1em;
+			outline: 0;
+			border-radius: 50%;
+			color: #D9D9D9;
+		}
+		.q-checkbox__bg {
+			top: 25%;
+			left: 25%;
+			width: 50%;
+			height: 50%;
+			border: 2px solid currentColor;
+			border-radius: 50%;
+			transition: background 0.22s cubic-bezier(0, 0, 0.2, 1) 0ms;
+			-webkit-print-color-adjust: exact;
 		}
 	}
 
@@ -920,6 +1053,10 @@ window.addEventListener('beforeunload', () => {
 		margin-top: 5px;
 	}
 }
+
+	.input-main--pos .relative-position {
+		position: static;
+	}
 
 .checkbox-main_log {
 	.q-checkbox__bg {
