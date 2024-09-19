@@ -35,7 +35,7 @@ showAuthForm.value = !showAuthForm.value;
         <div class="page-main__body body-main row q-pb-lg q-pl-sm q-pr-sm" style="width: 100%; flex: 1 1 auto; padding-top: 100px;">
          <div class="body-main__inner row container-md justify-center items-center">
             <!-- Форма авторизации -->
-            <div v-if="showAuthForm" class="card-column row col-xs-12 col-sm-6 col-md-5">
+            <div v-if="showAuthForm" class="card-column row col-xs-12 col-sm-6 col-md-4">
              <div class="card-main-inner">
                 <div class="card-main q-pt-lg q-pl-lg q-pr-lg q-pb-xl">
                  <div class="card-main__header row justify-center items-center q-mb-xl">
@@ -88,7 +88,7 @@ showAuthForm.value = !showAuthForm.value;
             </div>
 
             <!-- Форма регистрации -->
-            <div v-else class="card-column row col-xs-12 col-sm-6 col-md-5">
+            <div v-else class="card-column row col-xs-12 col-sm-6 col-md-4">
              <div class="card-main q-pt-lg q-pl-lg q-pr-lg q-pb-xl">
                 <div class="card-main__inner">
                  <div class="card-main__header row justify-center items-center q-pt-xl q-mb-xl">

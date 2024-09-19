@@ -9,63 +9,61 @@ const router = useRouter();
 </script>
 
 <template>
-<q-layout>
-    <q-page-container class="my-page-container body--dark-light">
+	<q-layout>
+    <q-page-container class="my-page-container body--dark-light"> 
      <q-page class="page-main column q-pb-md">
-        <HeaderLogin
-					style="position: fixed; z-index: 100; width: 100%;"
-				/>
+        <HeaderLogin style="position: fixed; z-index: 100; width: 100%;"/>
 
         <div class="page-main__body body-main row q-pb-lg q-pl-sm q-pr-sm" style="width: 100%; flex: 1 1 auto; padding-top: 100px;">
          <div class="body-main__inner row column container-md justify-center items-center">
            
-							<div class="card-login q-mb-xl">
-								<div class="card-login__icon">
-									<q-img
-										src="../assets/img/login-01.svg" 
-										alt="Logo"     
-										loading="lazy"      
-										style="width: 100%; height: auto;"
-									/>
-								</div>
-								<div class="card-login__text">Для игроков до 14 лет</div>
-								<div class="card-login__title">Зарегистрироваться</div>
-							</div>
+				<div class="card-login q-mb-xl">
+					<div class="card-login__icon">
+						<q-img
+							src="../assets/img/login-01.svg" 
+							alt="Logo"     
+							loading="lazy"      
+							style="width: 100%; height: auto;"
+						/>
+					</div>
+					<div class="card-login__text">Для игроков до 14 лет</div>
+					<div class="card-login__title">Зарегистрироваться</div>
+				</div>
 
-							<div class="card-login">
-								<div class="card-login__icon">
-									<q-img
-										src="../assets/img/login-02.svg" 
-										alt="Logo"     
-										loading="lazy"      
-										style="width: 100%; height: auto;"
-									/>
-								</div>
-								<div class="card-login__text">для игроков старше 14 лет</div>
-								<div class="card-login__title">Зарегистрироваться</div>
-							</div>
+				<div class="card-login">
+					<div class="card-login__icon">
+						<q-img
+							src="../assets/img/login-02.svg" 
+							alt="Logo"     
+							loading="lazy"      
+							style="width: 100%; height: auto;"
+						/>
+					</div>
+					<div class="card-login__text">для игроков старше 14 лет</div>
+					<div class="card-login__title">Зарегистрироваться</div>
+				</div>
 
-							<q-separator dark class="q-mt-xl q-mb-xl" style="max-width: 400px; width: 100%;" />
+				<q-separator dark class="q-mt-xl q-mb-xl" style="max-width: 400px; width: 100%;" />
 
-							<div class="card-login" @click="() => router.push({ name: 'authgame' })">
-								<div class="card-login__icon">
-									<q-img
-										src="../assets/img/login-03.svg" 
-										alt="Logo"     
-										loading="lazy"      
-										style="width: 100%; height: auto;"
-									/>
-								</div>
-								<div class="card-login__text">Уже есть аккаунт?</div>
-								<div class="card-login__title">Авторизоваться</div>
-							</div>
+				<div class="card-login" @click="() => router.push({ name: 'authgame' })">
+					<div class="card-login__icon">
+						<q-img
+							src="../assets/img/login-03.svg" 
+							alt="Logo"     
+							loading="lazy"      
+							style="width: 100%; height: auto;"
+						/>
+					</div>
+					<div class="card-login__text">Уже есть аккаунт?</div>
+					<div class="card-login__title">Авторизоваться</div>
+				</div>
 
          </div>
         </div>
 
      </q-page>
     </q-page-container>
-</q-layout>
+	</q-layout>
 </template>
 
 <style lang="scss">

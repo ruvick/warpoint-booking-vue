@@ -43,13 +43,12 @@ const handleSubmit = () => {
     <q-page-container class="my-page-container body--dark-light">
       <q-page class="page-main column q-pb-md">
 
-        <HeaderLogin
-          style="position: fixed; z-index: 100; width: 100%;"
-        />
+        <HeaderLogin style="position: fixed; z-index: 100; width: 100%;"/>
 
         <div class="page-main__body body-main row q-pb-lg q-pl-sm q-pr-sm" style="width: 100%; flex: 1 1 auto; padding-top: 100px;">
 
           <div class="body-main__wrapper" style="width: 100%;">
+
             <div class="body-main__butons row items-center" style="max-width: 45%; margin: 0 auto 80px auto;">
               <q-btn
                 class="no-hover"
@@ -63,14 +62,14 @@ const handleSubmit = () => {
                 <span>На главную</span>
               </q-btn>
             </div>
-            <div class="body-main__inner row container-md justify-center items-center">
-              <div class="card-column row col-xs-12 col-sm-6 col-md-5">
-                <div class="card-main q-pt-lg q-pl-lg q-pr-lg q-pb-xl">
 
+            <div class="body-main__inner row container-md justify-center items-center">
+
+              <div class="card-column row col-xs-12 col-sm-6 col-md-4">
+                <div class="card-main q-pt-lg q-pl-lg q-pr-lg q-pb-xl">
                   <div class="card-main__header row justify-center items-center q-mb-xl">
                     <div class="card-main__title text-h5 text-dark-10">Вход в аккаунт</div>
                   </div>
-
                   <div class="card-main__toggle toggle-buttons row items-center q-mt-xl q-mb-xl">
                     <q-btn-toggle
                       v-model="selectedOption"
@@ -79,7 +78,6 @@ const handleSubmit = () => {
                       unelevated
                     />
                   </div>
-
                   <!-- Поля ввода в зависимости от выбранного способа -->
                   <div v-if="selectedOption === 'email'">
                     <div class="input-main q-mb-lg">
@@ -98,25 +96,22 @@ const handleSubmit = () => {
                       />
                     </div>
                   </div>
-
                   <div v-else-if="selectedOption === 'phone'">
-
-										<div class="input-main q-mb-lg">
-											<div class="input-main__label">Телефон</div>
-											<q-input
-												class="input-main__input"
-												v-model="phone"
-												:mask="phoneMask"
-												fill-mask
-											>
-												<template v-slot:prepend>
-													<div class="input-main__flag">
-														<img :src="countryFlag" alt="flag" />
-													</div>
-												</template>
-											</q-input>
-										</div>
-
+							<div class="input-main q-mb-lg">
+								<div class="input-main__label">Телефон</div>
+									<q-input
+										class="input-main__input"
+										v-model="phone"
+										:mask="phoneMask"
+										fill-mask
+									>
+										<template v-slot:prepend>
+											<div class="input-main__flag">
+												<img :src="countryFlag" alt="flag" />
+											</div>
+										</template>
+									</q-input>
+								</div>
                     <div class="input-main q-mb-lg">
                       <div class="input-main__label">SMS-КОД</div>
                       <q-input
@@ -126,13 +121,12 @@ const handleSubmit = () => {
                       />
                     </div>
                   </div>
-
                   <div class="card-main__footer">
                     <q-btn
                       unelevated
                       class="card-main__btn _full text-weight-bold col"
                       style="border-radius: 10px;"
-											@click="handleSubmit"
+							@click="handleSubmit"
                     >
                       {{ selectedOption === 'email' ? 'Войти' : 'Подтвердить' }}
                     </q-btn>
