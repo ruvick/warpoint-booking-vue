@@ -323,7 +323,7 @@ window.addEventListener('beforeunload', () => {
 
 						<div class="card-main__wrapper column" style="flex-wrap: nowrap; max-block-size: 961px; height: 100%; overflow: auto;">
 
-							<div v-if="currentStep === 1" data-step="1" class="card-main__body q-pt-lg q-pl-lg q-pr-lg q-pb-lg">
+							<div v-if="currentStep === 1" class="card-main__body q-pt-lg q-pl-lg q-pr-lg q-pb-lg">
 
 								<div class="input-main input-main--row input-main--pos q-mb-lg" style="position: relative; flex-direction: row-reverse;">
 										<q-input
@@ -453,7 +453,7 @@ window.addEventListener('beforeunload', () => {
 
 							</div>
 
-							<div v-if="currentStep === 2" data-step="2" class="card-main__body column q-pt-lg q-pl-lg q-pr-lg q-pb-lg">
+							<div v-if="currentStep === 2" class="card-main__body column q-pt-lg q-pl-lg q-pr-lg q-pb-lg">
 
 								<div class="card-main__player player-card q-mb-xl">
 
@@ -542,93 +542,6 @@ window.addEventListener('beforeunload', () => {
 
 								</div>
 
-								<div class="card-main__player player-card q-mb-xl">
-
-									<div class="player-card__item row items-center q-mb-lg">
-											<q-img
-												class="player-card__icon q-mr-md"
-												src="../assets/img/player01.svg" 
-												alt="Logo"     
-												loading="lazy"      
-												style="max-width: 24px; width: 100%; height: 24px;"
-											/>
-										<div class="player-card__text">Игрок 2</div>
-									</div>
-
-									<div class="input-main input-main--row q-mb-lg">
-										<q-input 
-											class="input-main__input" 
-											v-model="surname" 
-											placeholder="Фамилия" 
-											:class="isActive(surname)"
-											>
-											<span class="input-main__label">Фамилия ребенка</span>
-										</q-input>
-									</div>
-
-									<div class="input-main input-main--row q-mb-lg">
-										<q-input 
-											class="input-main__input" 
-											v-model="name" 
-											placeholder="Имя ребенка" 
-											:class="isActive(name)"
-											>
-											<span class="input-main__label">Имя ребенка</span>
-										</q-input>
-									</div>
-
-									<div class="input-main input-main--row q-mb-lg">
-										<q-input 
-											class="input-main__input" 
-											v-model="patronymic" 
-											placeholder="Отчество" 
-											:class="isActive(patronymic)"
-											>
-											<span class="input-main__label">Отчество ребенка</span>
-										</q-input>
-									</div>
-
-									<div class="input-main input-main--row q-mb-lg">
-										<q-input 
-											class="input-main__input" 
-											v-model="birthDate" 
-											placeholder="дд/мм/г" 
-											:class="isActive(birthDate)"
-											mask="##/##/##"
-										>
-											<span class="input-main__label">Дата рождения</span>
-										</q-input>
-									</div>
-
-									<div class="input-main input-main--row q-mb-lg">
-										<span class="input-main__label">Пол</span>
-										<div class="input-main__input">
-											<q-checkbox 
-											v-model="isMale" 
-											label="М" 
-											class="custom-checkbox q-mr-sm"
-											/>
-											<q-checkbox 
-											v-model="isFemale" 
-											label="Ж" 
-											class="custom-checkbox"
-											/>
-										</div>
-									</div>
-
-									<div class="input-main input-main--row q-mb-lg">
-										<q-input 
-											class="input-main__input" 
-											v-model="name" 
-											placeholder="Игровое имя" 
-											:class="isActive(name)"
-											>
-											<span class="input-main__label">Игровое имя</span>
-										</q-input>
-									</div>
-
-								</div>
-
 								<q-btn class="card-main__btn _full text-weight-bold" style="border-radius: 10px; border: 2px solid #8e8e90; background-color: transparent; color: white;">
 									<svg class="q-mr-md" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<rect width="32" height="32" rx="16" fill="#44A248"/>
@@ -639,7 +552,7 @@ window.addEventListener('beforeunload', () => {
 
 							</div>
 
-							<div v-if="currentStep === 3" data-step="3" class="card-main__body q-pt-lg q-pl-lg q-pr-lg q-pb-lg">
+							<div v-if="currentStep === 3" class="card-main__body q-pt-lg q-pl-lg q-pr-lg q-pb-lg">
 
 								<div class="select-main q-mb-lg">
 									<q-select
