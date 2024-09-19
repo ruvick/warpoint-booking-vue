@@ -77,6 +77,11 @@ const routes = [
 		name: 'auth',
 		component: () => import('../views/AuthPage.vue'), // Страница авторизации
 	},
+	{
+		path: '/policytext/:label?',
+		name: 'policytext',
+		component: () => import('../views/PolicyText.vue'), // Страница конфиденциальности
+	},
 ];
 
 // Создание экземпляра маршрутизатора с использованием истории браузера

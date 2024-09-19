@@ -21,6 +21,8 @@ const countryFlag = ref(defaultCountryFlag);
 const isMale = ref(false);
 const isFemale = ref(false);
 
+const isAgreed = ref(false);
+
 // Следим за состоянием чекбоксов
 watch([isMale, isFemale], ([newMale, newFemale]) => {
   // Если выбран один пол, снимаем выбор с другого
@@ -32,10 +34,10 @@ watch([isMale, isFemale], ([newMale, newFemale]) => {
   }
 });
 
-const options = [
-  { label: 'По email', value: 'email' },
-  { label: 'По телефону', value: 'phone' }
-];
+// const options = [
+//   { label: 'По email', value: 'email' },
+//   { label: 'По телефону', value: 'phone' }
+// ];
 
 const handleForgotPassword = () => {
   console.log("Ссылка для сброса пароля отправлена");
@@ -49,7 +51,25 @@ const handleSubmit = () => {
     // Логика для подтверждения по телефону
     console.log("Подтверждение по телефону:", phone.value, smsCode.value);
   }
+
 };
+
+const source = ref(null);
+	const options = [
+	{ label: '2Gis', value: '2gis' },
+	{ label: 'VK', value: 'vk' },
+	{ label: 'Google', value: 'google' },
+	{ label: 'Instagram', value: 'instagram' },
+	{ label: 'TikTok', value: 'tikTok' },
+	{ label: 'Yandex', value: 'yandex' },
+	{ label: 'Youtube', value: 'youtube' },
+	{ label: 'Блогеры', value: 'bloggers' },
+	{ label: 'Наружная реклама', value: 'advertisement' },
+	{ label: 'От знакомых', value: 'friends' },
+	{ label: 'Проходили мимо', value: 'passed' },
+	{ label: 'Радио', value: 'radio' },
+	{ label: 'ТВ', value: 'tv' }
+	];
 
 // Инициализация переменных с сохраненными значениями из sessionStorage или значениями по умолчанию
 const country = ref(sessionStorage.getItem('selectedCountry') || '');
@@ -72,6 +92,9 @@ const seamless = ref(false);
 const participants = ref(1);
 const orderAmount = ref('3100');
 const prepaymentAmount = ref('600');
+
+const emailSubscription = ref(false);
+const smsSubscription = ref(false);
 
 // Функция для перехода на другую страницу
 const goToPage = (pageName, placeholder) => {
@@ -404,7 +427,7 @@ window.addEventListener('beforeunload', () => {
 
 							</div> -->
 
-							<div data-step="2" class="card-main__body q-pt-lg q-pl-lg q-pr-lg q-pb-lg">
+							<!-- <div data-step="2" class="card-main__body q-pt-lg q-pl-lg q-pr-lg q-pb-lg">
 
 								<div class="card-main__player player-card q-mb-xl">
 
@@ -501,13 +524,57 @@ window.addEventListener('beforeunload', () => {
 									<span class="block">Добавить ещё игрока</span>
 								</q-btn>
 
-							</div>
+							</div> -->
+
+							<div data-step="3" class="card-main__body q-pt-lg q-pl-lg q-pr-lg q-pb-lg">
+
+								<div class="select-main q-mb-lg">
+									<q-select
+										v-model="source"
+										:options="options"
+										label="Откуда вы узнали о нас"
+										class="custom-select"
+									/>
+								</div>
+
+								<div class="input-main input-main--row justify-between q-pt-sm q-pb-sm q-pl-md q-pr-md q-mb-lg"> 
+									<div class="input-main__name">Получать e-mail рассылку</div>
+									<q-toggle
+										v-model="emailSubscription"
+										class="toggle-label"
+									>
+										<span class="input-main__label">Да</span>
+									</q-toggle>
+								</div>
+
+								<div class="input-main input-main--row justify-between q-pt-sm q-pb-sm q-pl-md q-pr-md q-mb-lg"> 
+									<div class="input-main__name">Получать SMS рассылку</div>
+									<q-toggle
+										v-model="smsSubscription"
+										class="toggle-label"
+									>
+										<span class="input-main__label">Да</span>
+									</q-toggle>
+								</div>
+
+								<div class="input-main q-pt-sm q-pb-sm q-pl-md q-pr-md">
+									<q-checkbox class="checkbox-main checkbox-main_log" v-model="isAgreed" size="md">
+										<span class="input-main__label">
+											С <router-link to="/policytext">правилами игры</router-link> ознакомлен и даю согласие на обработку своих <router-link to="/policytext">персональных данных</router-link>
+										</span>
+									</q-checkbox>
+                    		</div>
+
+							</div> 
 
 							<div class="card-main__footer q-pt-lg q-pl-lg q-pr-lg q-pb-lg">
 								<div class="card-main__buttons q-pb-sm">
 									<q-btn unelevated class="card-main__btn _full text-weight-bold col" style="border-radius: 10px;">
 										<span class="block">Далее</span>
 									</q-btn>
+									<!-- <q-btn unelevated class="card-main__btn _full text-weight-bold col" style="border-radius: 10px;">
+										<span class="block">Зарегистрироваться</span>
+									</q-btn> -->
 								</div>
 							</div>
 							
@@ -620,6 +687,35 @@ window.addEventListener('beforeunload', () => {
 			transition: background 0.22s cubic-bezier(0, 0, 0.2, 1) 0ms;
 			-webkit-print-color-adjust: exact;
 		}
+	}
+
+	.custom-select {
+		padding: 0 16px;
+		background-color: #25272D;
+		.q-field__control {
+			color: red;
+			height: 56px;
+			max-width: 100%;
+			outline: none;
+		}
+	}
+
+	.custom-select .q-field__native {
+		color: #9E9E9E; 
+	}
+
+	.custom-select .q-field__label {
+		font-size: 20px;
+		font-weight: 500;
+		line-height: 23.44px;
+		color: #9E9E9E; 
+	}
+
+	.input-main__name {
+		font-size: 18px;
+		font-weight: 500;
+		line-height: 21.78px;
+		color: #C4C8CF;
 	}
 
 	::-webkit-scrollbar {
