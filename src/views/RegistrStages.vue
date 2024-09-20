@@ -6,6 +6,19 @@ import HeaderLogin from '@/components/HeaderLogin.vue';
 // Инициализация роутера
 const router = useRouter();
 
+const players = ref([
+  { surname: '', name: '', patronymic: '', birthDate: '', isMale: false, isFemale: false }
+]);
+
+function addPlayer() {
+  players.value.push({ surname: '', name: '', patronymic: '', birthDate: '', isMale: false, isFemale: false });
+}
+
+// Переименованная функция
+const isFieldActive = (field) => {
+  return field && field.length > 0 ? '_active' : '';
+};
+
 // Реактивные переменные
 const email = ref('');
 const password = ref('');
@@ -455,7 +468,7 @@ window.addEventListener('beforeunload', () => {
 
 							<div v-if="currentStep === 2" class="card-main__body column q-pt-lg q-pl-lg q-pr-lg q-pb-lg">
 
-								<div class="card-main__player player-card q-mb-xl">
+								<div v-for="(player, index) in players" :key="index" class="card-main__player player-card q-mb-xl">
 
 									<div class="player-card__item row items-center q-mb-lg">
 											<q-img
@@ -465,15 +478,15 @@ window.addEventListener('beforeunload', () => {
 												loading="lazy"      
 												style="max-width: 24px; width: 100%; height: 24px;"
 											/>
-										<div class="player-card__text">Игрок 1</div>
+										<div class="player-card__text">Игрок {{ index + 1 }}</div>
 									</div>
 
 									<div class="input-main input-main--row q-mb-lg">
 										<q-input 
 											class="input-main__input" 
-											v-model="surname" 
+											v-model="player.surname"
 											placeholder="Фамилия" 
-											:class="isActive(surname)"
+											:class="isActive(player.surname)"
 											>
 											<span class="input-main__label">Фамилия ребенка</span>
 										</q-input>
@@ -482,9 +495,9 @@ window.addEventListener('beforeunload', () => {
 									<div class="input-main input-main--row q-mb-lg">
 										<q-input 
 											class="input-main__input" 
-											v-model="name" 
+											v-model="player.name"
 											placeholder="Имя ребенка" 
-											:class="isActive(name)"
+											:class="isActive(player.name)"
 											>
 											<span class="input-main__label">Имя ребенка</span>
 										</q-input>
@@ -493,9 +506,9 @@ window.addEventListener('beforeunload', () => {
 									<div class="input-main input-main--row q-mb-lg">
 										<q-input 
 											class="input-main__input" 
-											v-model="patronymic" 
+											v-model="player.patronymic"
 											placeholder="Отчество" 
-											:class="isActive(patronymic)"
+											:class="isActive(player.patronymic)"
 											>
 											<span class="input-main__label">Отчество ребенка</span>
 										</q-input>
@@ -504,9 +517,9 @@ window.addEventListener('beforeunload', () => {
 									<div class="input-main input-main--row q-mb-lg">
 										<q-input 
 											class="input-main__input" 
-											v-model="birthDate" 
+											v-model="player.birthDate" 
 											placeholder="дд/мм/г" 
-											:class="isActive(birthDate)"
+											:class="isActive(player.birthDate)"
 											mask="##/##/##"
 										>
 											<span class="input-main__label">Дата рождения</span>
@@ -517,12 +530,12 @@ window.addEventListener('beforeunload', () => {
 										<span class="input-main__label">Пол</span>
 										<div class="input-main__input">
 											<q-checkbox 
-											v-model="isMale" 
+											v-model="player.isMale" 
 											label="М" 
 											class="custom-checkbox q-mr-sm"
 											/>
 											<q-checkbox 
-											v-model="isFemale" 
+											v-model="player.isFemale" 
 											label="Ж" 
 											class="custom-checkbox"
 											/>
@@ -532,9 +545,9 @@ window.addEventListener('beforeunload', () => {
 									<div class="input-main input-main--row q-mb-lg">
 										<q-input 
 											class="input-main__input" 
-											v-model="name" 
+											v-model="player.name" 
 											placeholder="Игровое имя" 
-											:class="isActive(name)"
+											:class="isActive(player.name)"
 											>
 											<span class="input-main__label">Игровое имя</span>
 										</q-input>
@@ -542,7 +555,7 @@ window.addEventListener('beforeunload', () => {
 
 								</div>
 
-								<q-btn class="card-main__btn _full text-weight-bold" style="border-radius: 10px; border: 2px solid #8e8e90; background-color: transparent; color: white;">
+								<q-btn @click="addPlayer" class="card-main__btn _full text-weight-bold" style="border-radius: 10px; border: 2px solid #8e8e90; background-color: transparent; color: white;">
 									<svg class="q-mr-md" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<rect width="32" height="32" rx="16" fill="#44A248"/>
 										<path d="M20.6344 17.5233V15.4091H10.3656V17.5233H20.6344ZM16.6634 21.9082V11.013H14.3478V21.9082H16.6634Z" fill="white"/>
