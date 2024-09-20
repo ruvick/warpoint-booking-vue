@@ -115,9 +115,9 @@
                     </div>
                     <div class="input-main">
                      <q-checkbox class="checkbox-main checkbox-main_log" v-model="isAgreed" size="md">
-                        <span class="input-main__label">
-                         С <a href="">правилами игры</a> ознакомлен и даю согласие на обработку своих <a href="">персональных данных</a>
-                        </span>
+                        <span class="input-main__label"> 
+                         С <router-link to="/policytext">правилами игры</router-link> ознакомлен и даю согласие на обработку своих <router-link to="/policytext">персональных данных</router-link>
+                        </span> 
                      </q-checkbox>
                     </div>
                  </div>

@@ -221,7 +221,6 @@ window.addEventListener('beforeunload', () => {
 
 </script>
 
-
 <template>
   <q-layout>
     <q-page-container class="my-page-container body--dark-light">

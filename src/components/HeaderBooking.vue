@@ -10,8 +10,7 @@
 		</q-btn>
 		<div
 			class="row justify-center items-center text-grey text-bold text-uppercase" 
-			style="flex: 1 1 auto;"
-		>
+			style="flex: 1 1 auto;">
 			Бронирование
 		</div>
 		<q-btn class="no-hover" primary style="font-size: 11px; color: #C4C8CF; border: 1px solid #30343B; border-radius: 24px;" @click="$router.back">

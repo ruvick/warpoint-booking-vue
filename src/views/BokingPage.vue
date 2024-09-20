@@ -1,40 +1,39 @@
 <script>
-import { ref, onMounted } from 'vue';
-import { useRouter } from 'vue-router';
-import HeaderBooking from '@/components/HeaderBooking.vue';
+	import { ref, onMounted } from 'vue';
+	import { useRouter } from 'vue-router';
+	import HeaderBooking from '@/components/HeaderBooking.vue';
 
-export default {
-  components: {
-    HeaderBooking
-  },
-  setup() {
-    const router = useRouter();
-    const bookingData = ref({}); // Реактивная переменная для хранения данных бронирования
+	export default {
+	components: {
+		HeaderBooking
+	},
+	setup() {
+		const router = useRouter();
+		const bookingData = ref({}); // Реактивная переменная для хранения данных бронирования
 
-    // Загружаем данные бронирования из sessionStorage при монтировании компонента
-    onMounted(() => {
-      const savedData = sessionStorage.getItem('bookingData');
-      if (savedData) {
-        bookingData.value = JSON.parse(savedData); // Парсим и сохраняем данные в реактивную переменную
-      }
-    });
+		// Загружаем данные бронирования из sessionStorage при монтировании компонента
+		onMounted(() => {
+			const savedData = sessionStorage.getItem('bookingData');
+			if (savedData) {
+			bookingData.value = JSON.parse(savedData); // Парсим и сохраняем данные в реактивную переменную
+			}
+		});
 
-    // Функция для выбора бронирования
-    const selectBooking = (title) => {
-      sessionStorage.setItem('selectedBooking', title); // Сохраняем выбранное бронирование в sessionStorage
-      router.push({ name: 'main' }); // Перенаправляем на страницу 'main'
-    };
+		// Функция для выбора бронирования
+		const selectBooking = (title) => {
+			sessionStorage.setItem('selectedBooking', title); // Сохраняем выбранное бронирование в sessionStorage
+			router.push({ name: 'main' }); // Перенаправляем на страницу 'main'
+		};
 
-    return {
-      bookingData,
-      selectBooking
-    };
-  }
-};
+		return {
+			bookingData,
+			selectBooking
+		};
+	}
+	};
 </script>
 
 <template>
-
 	<q-layout>
 		<q-page-container class="my-page-container body--dark">
 			<q-page class="page-internal q-pt-md q-pb-md q-pl-sm q-pr-sm">  
@@ -130,7 +129,6 @@ export default {
 			</q-page>
 		</q-page-container>
 	</q-layout>
-
 </template>
 
 <style lang="scss">
@@ -143,8 +141,6 @@ export default {
 		border-radius: 24px;
 		overflow: hidden;
 	}
-	.booking-card__header {
-	}
 	.header-booking-card {
 		width: 100%;
 	}
@@ -154,10 +150,6 @@ export default {
 		line-height: 18px;
 		letter-spacing: 0.02em;
 		color: #fff;
-	}
-	.header-booking-card__icon {
-	}
-	.booking-card__body {
 	}
 	.body-booking-card {
 		width: 100%;

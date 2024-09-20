@@ -1,9 +1,9 @@
 <script setup>
-import { useRoute } from 'vue-router';
+	import { useRoute } from 'vue-router';
 
-// Получение параметров маршрута
-const route = useRoute();
-const label = route.params.label || 'Выберите тариф'; // Установка значения по умолчанию
+	// Получение параметров маршрута
+	const route = useRoute();
+	const label = route.params.label || 'Выберите тариф'; // Установка значения по умолчанию
 </script>
 
 <template>

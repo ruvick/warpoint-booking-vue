@@ -1,92 +1,90 @@
 <script setup>
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-import Header from '@/components/Header.vue';
+	import { ref } from 'vue';
+	import { useRouter } from 'vue-router';
+	import Header from '@/components/Header.vue';
 
-// Инициализация роутера для навигации
-const router = useRouter();
+	// Инициализация роутера для навигации
+	const router = useRouter();
 
-// Реактивные переменные для хранения номера подарочного сертификата и PIN-кода
-const numberCert = ref('');
-const pin = ref('');
+	// Реактивные переменные для хранения номера подарочного сертификата и PIN-кода
+	const numberCert = ref('');
+	const pin = ref('');
 
-// Функция для добавления подарочного сертификата
-const addGiftCert = () => {
-  // Сохранение данных в sessionStorage
-  sessionStorage.setItem('selectedGiftCert', numberCert.value);
-  sessionStorage.setItem('pin', pin.value);
-  
-  // Перенаправление на страницу 'main'
-  router.push({ name: 'main' });
-};
-
+	// Функция для добавления подарочного сертификата
+	const addGiftCert = () => {
+	// Сохранение данных в sessionStorage
+	sessionStorage.setItem('selectedGiftCert', numberCert.value);
+	sessionStorage.setItem('pin', pin.value);
+	
+	// Перенаправление на страницу 'main'
+	router.push({ name: 'main' });
+	};
 </script>
 
 <template>
 	<q-layout>
-			<q-page-container class="my-page-container body--grey">
-			 <q-page class="page-internal q-pt-md q-pb-md q-pl-sm q-pr-sm">  
+		<q-page-container class="my-page-container body--grey">
+			<q-page class="page-internal q-pt-md q-pb-md q-pl-sm q-pr-sm">  
 
-					<Header/>
+				<Header/>
 
-					<div class="tarif-inner column items-start" style="width: 100%;">
+				<div class="tarif-inner column items-start" style="width: 100%;">
 
-						<div class="container-md q-pt-md q-pl-sm q-pr-sm"> 
-						
-									<div class="row q-pt-md q-pb-md" style="flex: 1 1 auto;">
+					<div class="container-md q-pt-md q-pl-sm q-pr-sm"> 
+					
+						<div class="row q-pt-md q-pb-md" style="flex: 1 1 auto;">
 
-										<div class="cert-card-column row col-xs-12 col-sm-6 col-md-4" @click="selectedGiftCert('Сертификат')">
-											<div class="cert-card column items-start q-pt-lg q-pb-lg q-pl-md q-pr-md">
-												<div class="cert-card__item">
-													<div class="input-main q-mb-lg">
-														<div class="input-main__label">Номер сертификата</div>
-														<q-input 
-															class="input-main__input" 
-															v-model="numberCert" 
-															mask="AAAA - ## - #### - #### - ####" 
-															placeholder="Введите номер сертификата" 
-														 />
-													</div>
-												</div>
-												<div class="cert-card__item">
-													<div class="input-main q-mb-lg">
-														<div class="input-main__label">ПИН</div>
-														<q-input 
-															class="input-main__input" 
-															v-model.number="pin"
-      												filled
-															type="number" 
-															placeholder="Введите пин" 
-														 />
-													</div>
-												</div>
-												<div class="cert-card__item">
-													<div class="cert-card__bg">
-														<img src="../assets/img/cert/bg.png" loading="lazy" alt="Картинка">
-													</div>
-												</div>
-											</div>
-										</div>
-
-									</div>
-
-									<div class="row">
-										<div class="col col-xs-12 col-sm-6 col-md-4">
-											<q-btn unelevated class="btn text-weight-bold" style="width: 100%;" @click="addGiftCert">
-												<span class="block">Добавить</span>
-											</q-btn>
+							<div class="cert-card-column row col-xs-12 col-sm-6 col-md-4" @click="selectedGiftCert('Сертификат')">
+								<div class="cert-card column items-start q-pt-lg q-pb-lg q-pl-md q-pr-md">
+									<div class="cert-card__item">
+										<div class="input-main q-mb-lg">
+											<div class="input-main__label">Номер сертификата</div>
+											<q-input 
+												class="input-main__input" 
+												v-model="numberCert" 
+												mask="AAAA - ## - #### - #### - ####" 
+												placeholder="Введите номер сертификата" 
+												/>
 										</div>
 									</div>
+									<div class="cert-card__item">
+										<div class="input-main q-mb-lg">
+											<div class="input-main__label">ПИН</div>
+											<q-input 
+												class="input-main__input" 
+												v-model.number="pin"
+											filled
+												type="number" 
+												placeholder="Введите пин" 
+												/>
+										</div>
+									</div>
+									<div class="cert-card__item">
+										<div class="cert-card__bg">
+											<img src="../assets/img/cert/bg.png" loading="lazy" alt="Картинка">
+										</div>
+									</div>
+								</div>
+							</div>
 
+						</div>
+
+						<div class="row">
+							<div class="col col-xs-12 col-sm-6 col-md-4">
+								<q-btn unelevated class="btn text-weight-bold" style="width: 100%;" @click="addGiftCert">
+									<span class="block">Добавить</span>
+								</q-btn>
+							</div>
 						</div>
 
 					</div>
 
-			 	</q-page>
-			</q-page-container>
-		</q-layout>
+				</div>
 
-	</template>
+			</q-page>
+		</q-page-container>
+	</q-layout>
+</template>
 
 <style lang="scss">
 	.cert-card-column {

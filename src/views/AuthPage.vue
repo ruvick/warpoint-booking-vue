@@ -1,22 +1,22 @@
 <script setup>
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-import HeaderBooking from '@/components/HeaderBooking.vue'; 
+	import { ref } from 'vue';
+	import { useRouter } from 'vue-router';
+	import HeaderBooking from '@/components/HeaderBooking.vue'; 
 
-// Инициализируем роутер для навигации
-const router = useRouter();
+	// Инициализируем роутер для навигации
+	const router = useRouter();
 
-// Функция для выбора бронирования
-const selectBooking = (title) => {
-  // Сохраняем выбранное бронирование в localStorage
-  localStorage.setItem('selectedBooking', title);
-  
-  // Переходим на страницу 'main'
-  router.push({ name: 'main' });
-};
+	// Функция для выбора бронирования
+	const selectBooking = (title) => {
+	// Сохраняем выбранное бронирование в localStorage
+	localStorage.setItem('selectedBooking', title);
+	
+	// Переходим на страницу 'main'
+	router.push({ name: 'main' });
+	};
 
-// Используем ref для реактивного хранения номера телефона
-const phone = ref(localStorage.getItem('selectedPhone') || null);
+	// Используем ref для реактивного хранения номера телефона
+	const phone = ref(localStorage.getItem('selectedPhone') || null);
 </script> 
 
 <template>

@@ -3,7 +3,6 @@
 </script>
 
 <template>
-
 	<div class="page-main__header header-page-main row justify-center items-center">
 		<q-btn
 			class="no-hover no-shadow"
@@ -28,14 +27,10 @@
 				/>
 			</svg>
 		</q-btn>
-		<div
-			class="row justify-center items-center text-grey text-bold text-uppercase"
-			style="flex: 1 1 auto;"
-		>
+		<div class="row justify-center items-center text-grey text-bold text-uppercase" style="flex: 1 1 auto;">
 			Выберите тариф
 		</div>
 	</div>
-
 </template>
 
 <style lang="scss">

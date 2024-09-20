@@ -1,42 +1,40 @@
 <script setup>
-import { defineProps, defineEmits } from 'vue';
+	import { defineProps, defineEmits } from 'vue';
 
-// Определение свойств компонента
-const props = defineProps({
-  imageSrc: {
-    type: String,
-    required: true 
-  },
-  imageAlt: {
-    type: String,
-    required: true 
-  },
-  title: {
-    type: String,
-    required: true 
-  },
-  price: {
-    type: Number,
-    required: true 
-  },
-  description: {
-    type: String,
-    default: '' 
-  }
-});
+	// Определение свойств компонента
+	const props = defineProps({
+		imageSrc: {
+			type: String,
+			required: true 
+		},
+		imageAlt: {
+			type: String,
+			required: true 
+		},
+		title: {
+			type: String,
+			required: true 
+		},
+		price: {
+			type: Number,
+			required: true 
+		},
+		description: {
+			type: String,
+			default: '' 
+		}
+	});
 
-// Определение событий, которые компонент может эмитировать
-const emit = defineEmits(['select']);
+	// Определение событий, которые компонент может эмитировать
+	const emit = defineEmits(['select']);
 
-// Обработчик клика, который эмитирует событие 'select' с заголовком
-const handleClick = () => {
-  emit('select', props.title); 
-};
-
+	// Обработчик клика, который эмитирует событие 'select' с заголовком
+	const handleClick = () => {
+		emit('select', props.title); 
+	};
 </script>
 
 <template>
-
 	<div class="activity-card-column row col-xs-12 col-sm-6 col-md-4" @click="handleClick">
 		<div class="activity-card column items-start">
 			<div class="activity-card__img q-mb-md">
@@ -53,7 +51,6 @@ const handleClick = () => {
 			<div class="activity-card__descp" v-if="description"> {{ description }} </div>
 		</div>
 	</div>
-	
 </template>
 
 <style lang="scss">
