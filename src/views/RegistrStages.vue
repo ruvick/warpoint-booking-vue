@@ -14,6 +14,14 @@ function addPlayer() {
   players.value.push({ surname: '', name: '', patronymic: '', birthDate: '', isMale: false, isFemale: false });
 }
 
+// function addPlayer() {
+//     players.value.push({}); // Добавляем пустого игрока
+// }
+
+function removePlayer(index) {
+    players.value.splice(index, 1); // Удаляем игрока по индексу
+}
+
 // Переименованная функция
 const isFieldActive = (field) => {
   return field && field.length > 0 ? '_active' : '';
@@ -471,6 +479,7 @@ window.addEventListener('beforeunload', () => {
 								<div v-for="(player, index) in players" :key="index" class="card-main__player player-card q-mb-xl">
 
 									<div class="player-card__item row items-center q-mb-lg">
+										<div class="row items-center" style="flex: 1 1 auto;">
 											<q-img
 												class="player-card__icon q-mr-md"
 												src="../assets/img/player01.svg" 
@@ -478,7 +487,19 @@ window.addEventListener('beforeunload', () => {
 												loading="lazy"      
 												style="max-width: 24px; width: 100%; height: 24px;"
 											/>
-										<div class="player-card__text">Игрок {{ index + 1 }}</div>
+											<div class="player-card__text">Игрок {{ index + 1 }}</div>
+										</div>
+										<q-btn
+											class="player-card__close btn-def no-hover"
+											primary
+											style="padding: 0;"
+											@click="removePlayer(index)"
+											>
+											<svg width="40" height="32" viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<rect x="0.5" y="0.5" width="39" height="31" rx="11.5" stroke="#44A248" stroke-opacity="0.5"/>
+												<path d="M26.2123 9.7978C26.1211 9.7064 26.0127 9.63387 25.8934 9.58439C25.7742 9.53491 25.6463 9.50944 25.5171 9.50944C25.388 9.50944 25.2601 9.53491 25.1408 9.58439C25.0216 9.63387 24.9132 9.7064 24.822 9.7978L20.0002 14.6097L15.1785 9.78794C15.0872 9.69665 14.9788 9.62424 14.8596 9.57483C14.7403 9.52543 14.6125 9.5 14.4833 9.5C14.3542 9.5 14.2264 9.52543 14.1071 9.57483C13.9879 9.62424 13.8795 9.69665 13.7882 9.78794C13.6969 9.87923 13.6245 9.98761 13.5751 10.1069C13.5257 10.2262 13.5002 10.354 13.5002 10.4831C13.5002 10.6122 13.5257 10.74 13.5751 10.8593C13.6245 10.9786 13.6969 11.087 13.7882 11.1783L18.6099 16L13.7882 20.8217C13.6969 20.913 13.6245 21.0214 13.5751 21.1407C13.5257 21.26 13.5002 21.3878 13.5002 21.5169C13.5002 21.646 13.5257 21.7738 13.5751 21.8931C13.6245 22.0124 13.6969 22.1208 13.7882 22.2121C13.8795 22.3033 13.9879 22.3758 14.1071 22.4252C14.2264 22.4746 14.3542 22.5 14.4833 22.5C14.6125 22.5 14.7403 22.4746 14.8596 22.4252C14.9788 22.3758 15.0872 22.3033 15.1785 22.2121L20.0002 17.3903L24.822 22.2121C24.9133 22.3033 25.0216 22.3758 25.1409 22.4252C25.2602 22.4746 25.388 22.5 25.5171 22.5C25.6462 22.5 25.7741 22.4746 25.8934 22.4252C26.0126 22.3758 26.121 22.3033 26.2123 22.2121C26.3036 22.1208 26.376 22.0124 26.4254 21.8931C26.4748 21.7738 26.5002 21.646 26.5002 21.5169C26.5002 21.3878 26.4748 21.26 26.4254 21.1407C26.376 21.0214 26.3036 20.913 26.2123 20.8217L21.3906 16L26.2123 11.1783C26.587 10.8036 26.587 10.1725 26.2123 9.7978Z" fill="#44A248"/>
+											</svg>
+										</q-btn>
 									</div>
 
 									<div class="input-main input-main--row q-mb-lg">
@@ -555,12 +576,14 @@ window.addEventListener('beforeunload', () => {
 
 								</div>
 
+								<div v-if="players.length === 0" class="input-main text-center q-mb-lg" style="color: #fff; font-size: 18px;">Нет игроков</div>
+
 								<q-btn @click="addPlayer" class="card-main__btn _full text-weight-bold" style="border-radius: 10px; border: 2px solid #8e8e90; background-color: transparent; color: white;">
 									<svg class="q-mr-md" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<rect width="32" height="32" rx="16" fill="#44A248"/>
 										<path d="M20.6344 17.5233V15.4091H10.3656V17.5233H20.6344ZM16.6634 21.9082V11.013H14.3478V21.9082H16.6634Z" fill="white"/>
 									</svg>
-									<span class="block">Добавить ещё игрока</span>
+									<span class="block">{{ players.length === 0 ? 'Добавить игрока' : 'Добавить ещё игрока' }}</span>
 								</q-btn>
 
 							</div>

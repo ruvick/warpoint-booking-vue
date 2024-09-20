@@ -17,7 +17,7 @@ const router = useRouter();
         <div class="page-main__body body-main row q-pb-lg q-pl-sm q-pr-sm" style="width: 100%; flex: 1 1 auto; padding-top: 100px;">
          <div class="body-main__inner row column container-md justify-center items-center">
            
-				<div class="card-login q-mb-xl">
+				<div class="card-login q-mb-xl" @click="() => router.push({ name: 'registrstages' })">
 					<div class="card-login__icon">
 						<q-img
 							src="../assets/img/login-01.svg" 
