@@ -66,16 +66,7 @@ const router = useRouter();
 	</q-layout>
 </template>
 
-<style lang="scss">
-	.body--dark-light {
-		background-color: #141517;
-	}
-	.card-column {
-		padding: 4px;
-		.card-login {
-			flex: 0 1 100%;
-		}
-	}
+<style scoped lang="scss">
 	.card-login {
 		max-width: 400px;
 		width: 100%;

@@ -183,10 +183,7 @@ const goBack = () => {
   </q-layout>
 </template>
 
-<style lang="scss">
-	.body--dark-light {
-		background-color: #141517;
-	}
+<style scoped lang="scss">
 	.card-text {
 		font-size: 16px;
 		font-weight: 500;

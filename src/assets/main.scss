@@ -60,3 +60,26 @@ $container-padding: 20px;
 .body--grey {
 	background-color: #1C1E22;
 }
+.body--dark-light {
+	background-color: #141517;
+}
+.text-h8 {
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 12px;
+	letter-spacing: 0.06em;
+}
+.text-dark-10 {
+	color:#C4C8CF;
+}
+//========================================================================================================================================================
+
+::-webkit-scrollbar {
+	overflow-y: scroll;
+	width: 7px;
+	background-color: #25272D;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #2d364b;
+}

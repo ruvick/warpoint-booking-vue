@@ -1,36 +1,34 @@
 <script setup>
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-import HeaderLogin from '@/components/HeaderLogin.vue';
+	import { ref } from 'vue';
+	import { useRouter } from 'vue-router';
+	import HeaderLogin from '@/components/HeaderLogin.vue';
 
-// Инициализация роутера
-const router = useRouter();
+	// Инициализация роутера
+	const router = useRouter();
 
-// Реактивные переменные
-const password = ref('');
-const isAgreed = ref(false);
-const showAuthForm = ref(true); 
+	// Реактивные переменные
+	const password = ref('');
+	const isAgreed = ref(false);
+	const showAuthForm = ref(true); 
 
-const handleForgotPassword = () => {
-console.log("Ссылка для сброса пароля отправлена");
-};
+	const handleForgotPassword = () => {
+	console.log("Ссылка для сброса пароля отправлена");
+	};
 
-const handleClick = () => {
-console.log('Кнопка нажата!');
-};
+	const handleClick = () => {
+	console.log('Кнопка нажата!');
+	};
 
-const toggleForm = () => {
-showAuthForm.value = !showAuthForm.value; 
-};
+	const toggleForm = () => {
+	showAuthForm.value = !showAuthForm.value; 
+	};
 </script>
 
 <template>
-<q-layout>
+	<q-layout>
     <q-page-container class="my-page-container body--dark-light">
      <q-page class="page-main column q-pb-md">
-        <HeaderLogin
-					style="position: fixed; z-index: 100; width: 100%;"
-				/>
+        <HeaderLogin style="position: fixed; z-index: 100; width: 100%;"/>
 
         <div class="page-main__body body-main row q-pb-lg q-pl-sm q-pr-sm" style="width: 100%; flex: 1 1 auto; padding-top: 100px;">
          <div class="body-main__inner row container-md justify-center items-center">
@@ -139,13 +137,10 @@ showAuthForm.value = !showAuthForm.value;
 
      </q-page>
     </q-page-container>
-</q-layout>
+	</q-layout>
 </template>
 
 <style lang="scss">
-.body--dark-light {
-	background-color: #141517;
-}
 	.card-column {
 		padding: 4px;
 	}
@@ -158,8 +153,7 @@ showAuthForm.value = !showAuthForm.value;
 	.card-main__title {
 		text-transform: uppercase;
 	}
-
-	.card-main-inner {
+	.card-main-inner { 
 		width: 100%;
 		.card-main {
 			border-radius: 24px 24px 0 0;
@@ -181,16 +175,6 @@ showAuthForm.value = !showAuthForm.value;
 			margin: 0px auto;
 		}  
 	}
-
-	.text-h8 {
-		font-size: 11px;
-		font-weight: 600;
-		line-height: 12px;
-		letter-spacing: 0.06em;
-	}
-	.text-dark-10 {
-		color:#C4C8CF;
-	}
 	// .input-main .q-field__label {
 	// 	font-size: 11px;
 	// 	font-weight: 600;
@@ -202,22 +186,22 @@ showAuthForm.value = !showAuthForm.value;
   //   transform: translateY(-110%) scale(1);
   //   transition: transform 0.36s cubic-bezier(0.4, 0, 0.2, 1), max-width 0.396s cubic-bezier(0.4, 0, 0.2, 1);
 	// }
-	.input-main__label {
-		font-size: 11px;
-		font-weight: 600;
-		line-height: 12px;
-		letter-spacing: 0.06em;
-    	max-width: 133%;
-		color: #535965;
-		text-transform: uppercase;
-	}
-	.input-main input {
-		font-size: 18px;
-		font-weight: 600;
-		line-height: 18px;
-		letter-spacing: 0.02em;
-		color: #535965;
-	} 
+	// .input-main__label {
+	// 	font-size: 11px;
+	// 	font-weight: 600;
+	// 	line-height: 12px;
+	// 	letter-spacing: 0.06em;
+   //  	max-width: 133%;
+	// 	color: #535965;
+	// 	text-transform: uppercase;
+	// }
+	// .input-main input {
+	// 	font-size: 18px;
+	// 	font-weight: 600;
+	// 	line-height: 18px;
+	// 	letter-spacing: 0.02em;
+	// 	color: #535965;
+	// } 
 	.input-main .q-field__control:before {
     border-bottom: 1px solid #25272D;
 		// bottom: -5px;
@@ -232,51 +216,55 @@ showAuthForm.value = !showAuthForm.value;
 		color: #C4C8CF;
 	}
 	.input-main .q-field__append  {
-			align-items: flex-end;
-			padding-bottom: 16px;
+		align-items: flex-end;
+		padding-bottom: 16px;
+	}
+	.checkbox-main {
+		overflow: hidden;
+		margin-left: -10px;
+		.q-checkbox__bg {
+			border: 2px solid #C4C8CF;
 		}
-		.checkbox-main {
-			overflow: hidden;
-			margin-left: -10px;
-			.q-checkbox__bg {
-				border: 2px solid #C4C8CF;
-			}
-			.q-checkbox__inner--truthy .q-checkbox__bg, .q-checkbox__inner--indet .q-checkbox__bg {
-					background: inherit;
-			}
-			.q-checkbox__label {
-				font-size: 18px;
-				font-weight: 600;
-				line-height: 18px;
-				letter-spacing: 0.02em;
-				color: #535965;
-				white-space: nowrap;
-			}
+		.q-checkbox__inner--truthy .q-checkbox__bg, .q-checkbox__inner--indet .q-checkbox__bg {
+				background: inherit;
 		}
-		.input-main__flag {
-			position: relative;
-			width: 25px;
-			height: 20px;
-			overflow: hidden;
-				img {
-					width: 100%;
-    			height: 100%;
-    			object-fit: cover;
-    			position: absolute;
-    			top: 0;
-    			left: 0;
-				}
-		}
-		.input-main--dooble {
-			border-bottom: 1px solid #25272D;
-		}
-		.price-main {
+		.q-checkbox__label {
 			font-size: 18px;
 			font-weight: 600;
 			line-height: 18px;
 			letter-spacing: 0.02em;
-			color: #C4C8CF;
+			color: #535965;
+			white-space: nowrap;
 		}
+	}
+
+
+		// .input-main__flag {
+		// 	position: relative;
+		// 	width: 25px;
+		// 	height: 20px;
+		// 	overflow: hidden;
+		// 		img {
+		// 			width: 100%;
+    	// 		height: 100%;
+    	// 		object-fit: cover;
+    	// 		position: absolute;
+    	// 		top: 0;
+    	// 		left: 0;
+		// 		}
+		// }
+		// .input-main--dooble {
+		// 	border-bottom: 1px solid #25272D;
+		// }
+		// .price-main {
+		// 	font-size: 18px;
+		// 	font-weight: 600;
+		// 	line-height: 18px;
+		// 	letter-spacing: 0.02em;
+		// 	color: #C4C8CF;
+		// }
+
+
 		.card-main__btn {
 			font-size: 13px;
 			font-weight: 600;
@@ -292,146 +280,137 @@ showAuthForm.value = !showAuthForm.value;
 			width: 100%;
 		}
 
-
-		.participants {
-			font-size: 18px;
-			font-weight: 600;
-			line-height: 18px;
-			letter-spacing: 0.02em;
-			gap: 3px;
-		}
-		.participants__item {
-			color: #535965;
-		}
-		.participants__item--start {
-			color: #C4C8CF;
-		} 
-		.ball-price {
-			font-size: 18px;
-			font-weight: 600;
-			line-height: 18px;
-			letter-spacing: 0.02em;
-			color: #C4C8CF;
-		}
-		.price-main-old {
-			font-size: 18px;
-			font-weight: 600;
-			line-height: 18px;
-			letter-spacing: 0.02em;
-			color: #535965;
-			text-decoration: line-through;
-		}
-		.price-main-arrow {
-			font-size: 16px;
-			font-weight: 700;
-			color: #535965;
-		}
+		// .participants {
+		// 	font-size: 18px;
+		// 	font-weight: 600;
+		// 	line-height: 18px;
+		// 	letter-spacing: 0.02em;
+		// 	gap: 3px;
+		// }
+		// .participants__item {
+		// 	color: #535965;
+		// }
+		// .participants__item--start {
+		// 	color: #C4C8CF;
+		// } 
+		// .ball-price {
+		// 	font-size: 18px;
+		// 	font-weight: 600;
+		// 	line-height: 18px;
+		// 	letter-spacing: 0.02em;
+		// 	color: #C4C8CF;
+		// }
+		// .price-main-old {
+		// 	font-size: 18px;
+		// 	font-weight: 600;
+		// 	line-height: 18px;
+		// 	letter-spacing: 0.02em;
+		// 	color: #535965;
+		// 	text-decoration: line-through;
+		// }
+		// .price-main-arrow {
+		// 	font-size: 16px;
+		// 	font-weight: 700;
+		// 	color: #535965;
+		// }
 		.input-main__input--addCert .q-field__control:before {
 			display: none;
 		}
-		.quantity {
-			.q-btn {
-				padding: 12px;
-				background: #25272D;
-				border-radius: 8px;
-			}
-			.q-icon {
-				font-size: 1rem;
-				color: #C7CCCC;
-			}
-		}
-		.input-cert-action__item {
-		}
-		.item-cert-action {
-			flex: 0 1 48%;
-			min-height: 74px;
-			border: 1px solid #272B2B;
-			border-radius: 12px;
-		}
-		.item-cert-action__name {
-			font-size: 11px;
-			font-weight: 600;
-			line-height: 12px;
-			letter-spacing: 0.06em;
-			color: #535965;
-		}
-		.item-cert-action__value {
-			font-size: 18px;
-			font-weight: 600;
-			line-height: 18px;
-			letter-spacing: 0.02em;
-			color: #535965;
-			.q-field__native {
-				field-sizing: content;
-				color: #C4C8CF;
-			}
-			.q-field--disabled .q-placeholder {
-				opacity: 1 !important;
-				color: #535965;
-				font-size: 18px;
-				font-weight: 600;
-				line-height: 18px;
-				letter-spacing: 0.02em;
-			}
-			.q-field__control {
-				padding: 0;
-			}
-			.q-field__control:before {
-				border: none;
-			}
-			.q-field__suffix {
-				padding: 3px;
-				color: #C4C8CF;
-				font-size: 18px;
-				font-weight: 600;
-				letter-spacing: 0.02em;
-			}
-			.q-field--disabled .q-field__control > div {
-				opacity: 1 !important;
-			}
-			.q-field--disabled .q-field__suffix {
-				color: #535965;
-			}
-		}
-		.apply-btn {
-			display: inline-flex;
-			justify-content: center;
-			align-items: center;
-			text-align: center;
-			font-size: 11px;
-			font-weight: 600;
-			line-height: 12px;
-			letter-spacing: 0.06em;
-			color: #C4C8CF;
-			padding: 12px 16px;
-			background-color: #0043CE;
-			border-radius: 8px;
-			overflow: hidden;
-		}
-		.sale-block {
-		}
-		.sale-block__item {
-			font-size: 18px;
-			font-weight: 600;
-			line-height: 18px;
-			letter-spacing: 0.02em;
-			color: #C4C8CF;
-		}
-		.sale-block__reset-btn {
-		}
-		.reset-sale-btn {
-		}
-
-
+		// .quantity {
+		// 	.q-btn {
+		// 		padding: 12px;
+		// 		background: #25272D;
+		// 		border-radius: 8px;
+		// 	}
+		// 	.q-icon {
+		// 		font-size: 1rem;
+		// 		color: #C7CCCC;
+		// 	}
+		// }
+		// .item-cert-action {
+		// 	flex: 0 1 48%;
+		// 	min-height: 74px;
+		// 	border: 1px solid #272B2B;
+		// 	border-radius: 12px;
+		// }
+		// .item-cert-action__name {
+		// 	font-size: 11px;
+		// 	font-weight: 600;
+		// 	line-height: 12px;
+		// 	letter-spacing: 0.06em;
+		// 	color: #535965;
+		// }
+		// .item-cert-action__value {
+		// 	font-size: 18px;
+		// 	font-weight: 600;
+		// 	line-height: 18px;
+		// 	letter-spacing: 0.02em;
+		// 	color: #535965;
+		// 	.q-field__native {
+		// 		field-sizing: content;
+		// 		color: #C4C8CF;
+		// 	}
+		// 	.q-field--disabled .q-placeholder {
+		// 		opacity: 1 !important;
+		// 		color: #535965;
+		// 		font-size: 18px;
+		// 		font-weight: 600;
+		// 		line-height: 18px;
+		// 		letter-spacing: 0.02em;
+		// 	}
+		// 	.q-field__control {
+		// 		padding: 0;
+		// 	}
+		// 	.q-field__control:before {
+		// 		border: none;
+		// 	}
+		// 	.q-field__suffix {
+		// 		padding: 3px;
+		// 		color: #C4C8CF;
+		// 		font-size: 18px;
+		// 		font-weight: 600;
+		// 		letter-spacing: 0.02em;
+		// 	}
+		// 	.q-field--disabled .q-field__control > div {
+		// 		opacity: 1 !important;
+		// 	}
+		// 	.q-field--disabled .q-field__suffix {
+		// 		color: #535965;
+		// 	}
+		// }
+		// .apply-btn {
+		// 	display: inline-flex;
+		// 	justify-content: center;
+		// 	align-items: center;
+		// 	text-align: center;
+		// 	font-size: 11px;
+		// 	font-weight: 600;
+		// 	line-height: 12px;
+		// 	letter-spacing: 0.06em;
+		// 	color: #C4C8CF;
+		// 	padding: 12px 16px;
+		// 	background-color: #0043CE;
+		// 	border-radius: 8px;
+		// 	overflow: hidden;
+		// }
+		// .sale-block__item {
+		// 	font-size: 18px;
+		// 	font-weight: 600;
+		// 	line-height: 18px;
+		// 	letter-spacing: 0.02em;
+		// 	color: #C4C8CF;
+		// }
 		.q-dialog__backdrop {
 			background: rgba(0, 0, 0, 0.9);
 		}
-.auth-reg {
-	background-color: #000000;
-	.q-card__section {
-		padding: 3px 0;
-	}
-}
+// .auth-reg {
+// 	background-color: #000000;
+// 	.q-card__section {
+// 		padding: 3px 0;
+// 	}
+// }
+
+
 .account-btn, 
 .reg-btn {
 	font-size: 11px;
@@ -450,55 +429,51 @@ showAuthForm.value = !showAuthForm.value;
 .reg-btn {
 	color: #0554F8;
 }
-.auth-dialog {
-	background-color: #1C1E22;
-	border-radius: 32px 32px 0 0 !important;
-	overflow: hidden !important;
-}
-.auth-card-column {
-	padding: 4px;
-}
-.auth-card {
-	flex: 0 1 100%;
-	background-color: #1C1E22;
-	border-radius: 32px;
-	overflow: hidden;
-}
-.auth-card__icon {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-}
-.auth-card__icon-tap {
-	flex: 0 0 48px;
-	height: 5px;
-	border-radius: 25px;
-	background-color: #30343B;
-}
-.auth-card__header {
-}
-.header-auth-card {
-	width: 100%;
-}
-.header-auth-card__title {
-	font-size: 18px;
-	font-weight: 600;
-	line-height: 18px;
-	letter-spacing: 0.02em;
-	text-align: center;
-	color: #C4C8CF;
-}
-.auth-card__body {
-}
-.body-auth-card {
-	width: 100%;
-}
-.auth-card__footer {
-}
-.footer-auth-card {
-	width: 100%;
-}
+
+
+// .auth-dialog {
+// 	background-color: #1C1E22;
+// 	border-radius: 32px 32px 0 0 !important;
+// 	overflow: hidden !important;
+// }
+// .auth-card-column {
+// 	padding: 4px;
+// }
+// .auth-card {
+// 	flex: 0 1 100%;
+// 	background-color: #1C1E22;
+// 	border-radius: 32px;
+// 	overflow: hidden;
+// }
+// .auth-card__icon {
+// 	display: flex;
+// 	align-items: center;
+// 	justify-content: center;
+// 	width: 100%;
+// }
+// .auth-card__icon-tap {
+// 	flex: 0 0 48px;
+// 	height: 5px;
+// 	border-radius: 25px;
+// 	background-color: #30343B;
+// }
+// .header-auth-card {
+// 	width: 100%;
+// }
+// .header-auth-card__title {
+// 	font-size: 18px;
+// 	font-weight: 600;
+// 	line-height: 18px;
+// 	letter-spacing: 0.02em;
+// 	text-align: center;
+// 	color: #C4C8CF;
+// }
+// .body-auth-card {
+// 	width: 100%;
+// }
+// .footer-auth-card {
+// 	width: 100%;
+// }
 .btn {
 		font-size: 13px;
 		font-weight: 600;
@@ -509,22 +484,22 @@ showAuthForm.value = !showAuthForm.value;
 		background-color: #0043CE;
 		border-radius: 24px;
 	}
-	.btn-still {
-		font-size: 11px;
-		font-weight: 600;
-		line-height: 12px;
-		letter-spacing: 0.06em;
-		color: #535965;
-		.q-btn__content {
-			justify-content: flex-end;
-			text-align: right;
-		}
-	}
-	@media (any-hover: hover){
-		.btn-still:hover .q-focus-helper { 
-			opacity: 0 !important;
-		  } 
-		}
+	// .btn-still {
+	// 	font-size: 11px;
+	// 	font-weight: 600;
+	// 	line-height: 12px;
+	// 	letter-spacing: 0.06em;
+	// 	color: #535965;
+	// 	.q-btn__content {
+	// 		justify-content: flex-end;
+	// 		text-align: right;
+	// 	}
+	// }
+	// @media (any-hover: hover){
+	// 	.btn-still:hover .q-focus-helper { 
+	// 		opacity: 0 !important;
+	// 	  } 
+	// 	}
 	.input-main__label {
 		font-size: 11px;
 		font-weight: 600;
@@ -560,9 +535,6 @@ showAuthForm.value = !showAuthForm.value;
 		overflow: hidden;
 	}
 //========================================================================================================================================================
-.btn-def {
-	
-}
 .btn-right .q-btn__content {
 	display: flex;
   text-align: right;
