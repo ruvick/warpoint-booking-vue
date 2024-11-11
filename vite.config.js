@@ -25,7 +25,7 @@ import { quasar, transformAssetUrls } from '@quasar/vite-plugin'
 // })
 
 export default defineConfig({
-	base: '/<REPO_NAME>/', // Замените <REPO_NAME> на имя вашего репозитория
+	base: '/https://ruvick.github.io/warpoint-booling-vue/dist/', // Замените <REPO_NAME> на имя вашего репозитория
 	plugins: [
 	vue({
 			template: { transformAssetUrls }
