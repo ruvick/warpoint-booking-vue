@@ -1,0 +1,1 @@
+function l(e,n,o){if(o<=n)return n;const r=o-n+1;let t=n+(e-n)%r;return t<n&&(t=r+t),t===0?0:t}function u(e,n=2,o="0"){if(e==null)return e;const r=""+e;return r.length>=n?r:new Array(n-r.length+1).join(o)+r}export{l as n,u as p};
