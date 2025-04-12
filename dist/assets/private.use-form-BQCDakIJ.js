@@ -1,1 +1,0 @@
-import{i as n,j as r}from"./index-CLhuUrkt.js";const o={name:String};function s(e){return n(()=>({type:"hidden",name:e.name,value:e.modelValue}))}function i(e={}){return(t,u,a)=>{t[u](r("input",{class:"hidden"+(a||""),...e.value}))}}function c(e){return n(()=>e.name||e.for)}export{c as a,i as b,s as c,o as u};
