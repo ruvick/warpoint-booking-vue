@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router';  // Используем createWebHashHistory
+import { createRouter, createWebHistory } from 'vue-router';
 
 // Определение маршрутов приложения
 const routes = [
@@ -84,9 +84,9 @@ const routes = [
 	},
 ];
 
-// Создание экземпляра маршрутизатора с использованием hash истории
+// Создание экземпляра маршрутизатора с использованием истории браузера
 const router = createRouter({
-	history: createWebHashHistory(import.meta.env.BASE_URL), // Использование hash history
+	history: createWebHistory(import.meta.env.BASE_URL), // Использование базового URL из окружения
 	routes, // Определенные маршруты
 });
 
